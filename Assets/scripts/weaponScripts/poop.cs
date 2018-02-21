@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class stone : MonoBehaviour
+public class poop : MonoBehaviour
 {
-    public float damage = 10;
-    public float speed = 20;
+    public float damage = 5;
 
     // Use this for initialization
     void Start ()
@@ -22,14 +21,14 @@ public class stone : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Debug.Log(collision.tag);
-        if (collision.tag == "Bird")
+        if (collision.tag == "Ground")
         {
-            //Debug.Log("Stone hit bird!");
             Destroy(transform.gameObject);
         }
-        else if (collision.tag == "Ground")
+        else if (collision.tag == "Player")
         {
             Destroy(transform.gameObject);
+            GameObject.FindGameObjectWithTag("Player").SendMessage("TakeMeleeDamage", damage);
         }
     }
 }

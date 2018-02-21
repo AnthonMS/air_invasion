@@ -13,8 +13,8 @@ public class seagulMeleeAttack : MonoBehaviour
     private GameObject player;
     private Vector3 playerPos;
     private Vector3 attackPos;
-    private Rigidbody2D rigidBody;
-    private Collider2D boxCollider;
+    //private Rigidbody2D rigidBody;
+    //private Collider2D boxCollider;
 
     public bool isDead = false;
 
@@ -22,7 +22,7 @@ public class seagulMeleeAttack : MonoBehaviour
     void Start ()
     {
         //rigidBody = GetComponent<Rigidbody2D>();
-        boxCollider = GetComponent<BoxCollider2D>();
+        //boxCollider = GetComponent<BoxCollider2D>();
         player = GameObject.FindGameObjectWithTag("Player");
         playerPos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
         // Calculate the position the bird is going to attack. The player is moving, so make sure it attacks in front of him.
@@ -42,6 +42,7 @@ public class seagulMeleeAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //Debug.Log(collision.tag);
         if (collision.tag == "Player")
         {
             // This destroys the one holding this script, in this case the Bird/Seagul
@@ -62,7 +63,8 @@ public class seagulMeleeAttack : MonoBehaviour
         {
             //Debug.Log("Bird got hit by stone");
             killBird(true);
-            collision.gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            Destroy(collision.gameObject);
+            //collision.gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         }
     }
 
@@ -75,8 +77,8 @@ public class seagulMeleeAttack : MonoBehaviour
         else
         {
             isDead = true;
-            rigidBody.isKinematic = false;
-            boxCollider.isTrigger = false;
+            //rigidBody.isKinematic = false;
+            //boxCollider.isTrigger = false;
         }
     }
 }

@@ -15,7 +15,8 @@ public class playerStats : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update ()
+    {
 		
 	}
 
@@ -24,11 +25,11 @@ public class playerStats : MonoBehaviour {
         //Debug.Log("Player takes " + damage + " damage");
         if (!isProtecting)
         {
-            //Debug.Log(damage + " damage taken");
+            Debug.Log(damage + " damage taken");
         }
         else
         {
-            //Debug.Log("Player is protecting");
+            Debug.Log("Player is protecting");
         }
     }
 

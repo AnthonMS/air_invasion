@@ -69,6 +69,7 @@ public class keyboardInput : MonoBehaviour
             // Make the bullet fly in that direction at the speed of you weapon
             weaponBullet.GetComponent<Rigidbody2D>().velocity = direction * weaponBullet.GetComponent<stone>().speed;
         }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
