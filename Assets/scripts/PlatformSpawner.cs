@@ -26,13 +26,13 @@ public class PlatformSpawner : MonoBehaviour {
 
     private void CheckForPlatform()
     {
-        if (i < 10)
+        if (i < 15)
         {
             CreatePlatform();
             i++;
         }
         playerPos = new Vector2(player.transform.position.x, player.transform.position.y);
-        if (playerPos.x > latestGroundPos.x - 10)
+        if (playerPos.x > latestGroundPos.x - 15)
         {
             CreatePlatform();
         }
