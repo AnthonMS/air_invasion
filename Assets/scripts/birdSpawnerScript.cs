@@ -8,6 +8,8 @@ public class birdSpawnerScript : MonoBehaviour
     private GameObject player;
     private Vector3 playerPos;
     private float playerLastXPos;
+    private int bird = 1;
+    private int lastSpawnedBird = 1;
 
     //private int randomNum;
     public int spawnEveryX = 5;
@@ -30,6 +32,8 @@ public class birdSpawnerScript : MonoBehaviour
         {
             SpawnBird();
             //Debug.Log(playerLastXPos + 50);
+            SpawnEagle();
+
         }
         //}
     }
@@ -47,4 +51,17 @@ public class birdSpawnerScript : MonoBehaviour
         birdInstance.transform.parent = transform;
 
     }
+
+    private void SpawnEagle()
+    {
+        playerLastXPos = player.transform.position.x;
+        float randomX1 = Random.Range(playerPos.x, playerPos.x + 60);
+        float y1 = playerPos.y + 20;
+        GameObject eagleInstance = Instantiate(Resources.Load("eagle", typeof(GameObject))) as GameObject;
+        eagleInstance.transform.Translate(new Vector3(randomX1, y1, 0));
+        eagleInstance.transform.parent = transform;
+
+    }
+
+
 }
