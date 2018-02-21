@@ -17,7 +17,7 @@ public class cameraFollow : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-		
+		// Testing github commits and pulls
 	}
 
     // LateUpdate is called after Update each frame
