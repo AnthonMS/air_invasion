@@ -43,7 +43,6 @@ public class birdSpawnerScript : MonoBehaviour
         playerLastXPos = player.transform.position.x;
 
         float randomX = Random.Range(playerPos.x, playerPos.x + 50);
-        //float randomY = Random.Range(playerPos.y + 10, playerPos.x + 15);
         float y = playerPos.y + 10;
 
         GameObject birdInstance = Instantiate(Resources.Load("meleeBird", typeof(GameObject))) as GameObject;
@@ -55,8 +54,8 @@ public class birdSpawnerScript : MonoBehaviour
     private void SpawnEagle()
     {
         playerLastXPos = player.transform.position.x;
-        float randomX1 = Random.Range(playerPos.x, playerPos.x + 60);
-        float y1 = playerPos.y + 20;
+        float randomX1 = Random.Range(playerPos.x, playerPos.x + 50);
+        float y1 = playerPos.y + 10;
         GameObject eagleInstance = Instantiate(Resources.Load("eagle", typeof(GameObject))) as GameObject;
         eagleInstance.transform.Translate(new Vector3(randomX1, y1, 0));
         eagleInstance.transform.parent = transform;
