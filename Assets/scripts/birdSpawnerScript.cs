@@ -46,7 +46,7 @@ public class birdSpawnerScript : MonoBehaviour
         Vector3 camPos = cam.transform.position;
         float y = camPos.y + 7; // This y value will make it spawn right above the camera view.
 
-        GameObject birdInstance = Instantiate(Resources.Load("meleeBird", typeof(GameObject))) as GameObject;
+        GameObject birdInstance = Instantiate(Resources.Load("yellowBird", typeof(GameObject))) as GameObject;
         birdInstance.transform.Translate(new Vector3(randomX, y, 0));
         birdInstance.transform.parent = transform;
 
@@ -62,13 +62,13 @@ public class birdSpawnerScript : MonoBehaviour
         int randomInt = Random.Range(1, 3); // 1 or 2
         if (randomInt == 1)
         {
-            x = camPos.x + -18; // subtract -18 for the left of camera
+            x = camPos.x + -28; // subtract -18 for the left of camera
         } else
         {
-            x = camPos.x + 5; // add +5 to make it spawn to the right of camera
+            x = camPos.x + 10; // add +5 to make it spawn to the right of camera
         }
 
-        GameObject birdInstance = Instantiate(Resources.Load("rangedStork", typeof(GameObject))) as GameObject;
+        GameObject birdInstance = Instantiate(Resources.Load("rangedStork_new", typeof(GameObject))) as GameObject;
         birdInstance.transform.Translate(new Vector3(x, y, 0));
         birdInstance.transform.parent = transform;
     }

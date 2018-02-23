@@ -39,6 +39,11 @@ public class seagulMeleeAttack : MonoBehaviour
         {
             playerPos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
             transform.position = Vector3.MoveTowards(transform.position, attackPos, speed * Time.deltaTime);
+
+            Vector3 direction = (transform.position - attackPos);
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 5 * Time.deltaTime);
         }
     }
 

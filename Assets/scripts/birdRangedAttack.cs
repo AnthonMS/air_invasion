@@ -36,11 +36,13 @@ public class birdRangedAttack : MonoBehaviour {
         // If x is larger on bird, make it fly to the left
         if (camPos.x > myPos.x)
         {
-            spriteRender.sprite = rightSprite;
+            //spriteRender.sprite = rightSprite;
+            spriteRender.flipX = true;
             flyRight = true;
         } else
         {
-            spriteRender.sprite = leftSprite;
+            //spriteRender.sprite = leftSprite;
+            spriteRender.flipX = false;
             flyRight = false;
         }
 
@@ -98,14 +100,16 @@ public class birdRangedAttack : MonoBehaviour {
         {
             // It's to far left
             flyRight = true;
-            spriteRender.sprite = rightSprite;
+            spriteRender.flipX = true;
+            //spriteRender.sprite = rightSprite;
             droppedPoop = false;
         }
         else if (myPos.x > camPos.x + 10)
         {
             // It's to far right
             flyRight = false;
-            spriteRender.sprite = leftSprite;
+            spriteRender.flipX = false;
+            //spriteRender.sprite = leftSprite;
             droppedPoop = false;
         }
     }
