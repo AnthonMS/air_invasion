@@ -20,11 +20,13 @@ public class birdRangedAttack : MonoBehaviour {
     private bool droppedPoop = false;
     private SpriteRenderer spriteRender;
     private GameObject birdPoop;
+    private GameObject whiteFeathers;
 
     // Use this for initialization
     void Start ()
     {
         birdPoop = Resources.Load("birdPoop", typeof(GameObject)) as GameObject;
+        whiteFeathers = Resources.Load("whiteFeathers", typeof(GameObject)) as GameObject;
         spriteRender = this.GetComponent<SpriteRenderer>();
         cam = GameObject.Find("Main_Camera").GetComponent<Camera>();
         player = GameObject.FindGameObjectWithTag("Player");
@@ -61,15 +63,15 @@ public class birdRangedAttack : MonoBehaviour {
         if (transform.position.x + randomFloat > playerPos.x &&
             transform.position.x - randomFloat < playerPos.x)
         {
-            if (!droppedPoop)
+            // Checks that it has only dropped 1 poop on that flyby. This is set to false as soon as the bird changes direction
+            // Also checks if the bird is dead, this is because for 3 seconds after collision with stone,
+            // It is dead, but it is only invisble to make the poop dropped right before death stay in the game until it collides.
+            if (!droppedPoop && !isDead)
             {
-                //Debug.Log("DROP BIRD POOP NOW!");
+                //Debug.Log("DROP POOP NOW!");
                 Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
                 // Create the poop
-                // As of now, the dropped poop will be destroyed when the bird is destroyed.
-                // This is not supposed to happen, but I cannot get the other instantiate to spawn them at the right position
-                // This is fixed by changing the parent of the poop
-                GameObject poop = Instantiate(birdPoop, spawnPos, Quaternion.identity);
+                GameObject poop = (GameObject)Instantiate(birdPoop, spawnPos, Quaternion.identity);
                 poop.transform.parent = transform;
                 droppedPoop = true;
             }
@@ -112,9 +114,16 @@ public class birdRangedAttack : MonoBehaviour {
     {
         if (collision.tag == "Stone")
         {
-            //Debug.Log("Bird got hit by stone");
-            Destroy(this.gameObject);
-            Destroy(collision.gameObject);
+            // The bird is dead, but it might have just dropped a poop
+            // Because of this, we will just make it invisible and not collidable
+            // And after 3 seconds, destroy it, this way, the poop will have fallen to the ground.
+            isDead = true;
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            Destroy(gameObject, 3f);
+            Destroy(collision.gameObject); // Destroy the stone
+            GameObject feathers = (GameObject)Instantiate(whiteFeathers, transform.position, transform.rotation); // Create feathers
+            Destroy(feathers, 2f); // Destory feathers after 2 seconds when they are gone anyway.
         }
     }
 }
