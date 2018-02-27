@@ -13,8 +13,9 @@ public class seagulMeleeAttack : MonoBehaviour
     private GameObject player;
     private Vector3 playerPos;
     private Vector3 attackPos;
-    private Rigidbody2D rigidBody;
-    private Collider2D boxCollider;
+    //private Rigidbody2D rigidBody;
+    //private Collider2D boxCollider;
+    private GameObject whiteFeathers;
 
     public bool isDead = false;
 
@@ -22,7 +23,8 @@ public class seagulMeleeAttack : MonoBehaviour
     void Start ()
     {
         //rigidBody = GetComponent<Rigidbody2D>();
-        boxCollider = GetComponent<BoxCollider2D>();
+        //boxCollider = GetComponent<BoxCollider2D>();
+        whiteFeathers = Resources.Load("whiteFeathers", typeof(GameObject)) as GameObject;
         player = GameObject.FindGameObjectWithTag("Player");
         playerPos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
         // Calculate the position the bird is going to attack. The player is moving, so make sure it attacks in front of him.
@@ -37,11 +39,17 @@ public class seagulMeleeAttack : MonoBehaviour
         {
             playerPos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
             transform.position = Vector3.MoveTowards(transform.position, attackPos, speed * Time.deltaTime);
+
+            Vector3 direction = (transform.position - attackPos);
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 5 * Time.deltaTime);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //Debug.Log(collision.tag);
         if (collision.tag == "Player")
         {
             // This destroys the one holding this script, in this case the Bird/Seagul
@@ -62,7 +70,8 @@ public class seagulMeleeAttack : MonoBehaviour
         {
             //Debug.Log("Bird got hit by stone");
             killBird(true);
-            collision.gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            Destroy(collision.gameObject);
+            //collision.gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         }
     }
 
@@ -71,12 +80,14 @@ public class seagulMeleeAttack : MonoBehaviour
         if (destroy)
         {
             Destroy(transform.gameObject);
+            GameObject feathers = (GameObject)Instantiate(whiteFeathers, transform.position, transform.rotation);
+            Destroy(feathers, 3f);
         }
         else
         {
             isDead = true;
-            rigidBody.isKinematic = false;
-            boxCollider.isTrigger = false;
+            //rigidBody.isKinematic = false;
+            //boxCollider.isTrigger = false;
         }
     }
 }
