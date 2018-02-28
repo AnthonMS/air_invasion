@@ -19,9 +19,13 @@ public class seagulMeleeAttack : MonoBehaviour
 
     public bool isDead = false;
 
+
+
     // Use this for initialization
     void Start ()
     {
+        Score scoreobj = new Score();
+
         //rigidBody = GetComponent<Rigidbody2D>();
         //boxCollider = GetComponent<BoxCollider2D>();
         whiteFeathers = Resources.Load("yellowFeathers", typeof(GameObject)) as GameObject;
@@ -69,9 +73,11 @@ public class seagulMeleeAttack : MonoBehaviour
         else if (collision.tag == "Stone")
         {
             //Debug.Log("Bird got hit by stone");
+            Debug.Log("hit bird");
             killBird(true);
             Destroy(collision.gameObject);
             //collision.gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            player.SendMessage("updateScore");
         }
     }
 
