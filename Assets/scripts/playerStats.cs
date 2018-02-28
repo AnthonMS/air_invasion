@@ -19,6 +19,7 @@ public class playerStats : MonoBehaviour {
         currentWeapon = Resources.Load("stone", typeof(GameObject)) as GameObject;
         tier = 1;
         increaseTier = 500;
+        ammo += 10;
     }
 
     // Update is called once per frame
