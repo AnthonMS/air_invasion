@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class playerStats : MonoBehaviour {
 
+    public float runningSpeed = 3f;
+    public float jumpSpeed = 500.0f;
     public float health;
     public bool isProtecting = false;
     public GameObject currentWeapon;
@@ -44,11 +46,11 @@ public class playerStats : MonoBehaviour {
         //Debug.Log("Player takes " + damage + " damage");
         if (!isProtecting)
         {
-            Debug.Log(damage + " damage taken");
+            //Debug.Log(damage + " damage taken");
         }
         else
         {
-            Debug.Log("Player is protecting");
+            //Debug.Log("Player is protecting");
         }
     }
 

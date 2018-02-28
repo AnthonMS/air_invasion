@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class keyboardInput : MonoBehaviour
 {
-    public float runningSpeed = 2.0f;
+    public float runningSpeed = 3f;
     public float jumpSpeed = 500.0f;
     private Rigidbody2D rigidBody;
     // Sprites to use
