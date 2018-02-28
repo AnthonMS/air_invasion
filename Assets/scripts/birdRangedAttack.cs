@@ -96,7 +96,7 @@ public class birdRangedAttack : MonoBehaviour {
         // This will calculate if the bird will have to change direction
         camPos = cam.transform.position;
         myPos = transform.position;
-        if (camPos.x - 10 > myPos.x && camPos.x > myPos.x)
+        if (camPos.x - 20 > myPos.x && camPos.x > myPos.x)
         {
             // It's to far left
             flyRight = true;
@@ -104,7 +104,7 @@ public class birdRangedAttack : MonoBehaviour {
             //spriteRender.sprite = rightSprite;
             droppedPoop = false;
         }
-        else if (myPos.x > camPos.x + 10)
+        else if (myPos.x > camPos.x + 20)
         {
             // It's to far right
             flyRight = false;

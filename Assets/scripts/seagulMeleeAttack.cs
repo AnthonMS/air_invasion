@@ -24,7 +24,7 @@ public class seagulMeleeAttack : MonoBehaviour
     {
         //rigidBody = GetComponent<Rigidbody2D>();
         //boxCollider = GetComponent<BoxCollider2D>();
-        whiteFeathers = Resources.Load("whiteFeathers", typeof(GameObject)) as GameObject;
+        whiteFeathers = Resources.Load("yellowFeathers", typeof(GameObject)) as GameObject;
         player = GameObject.FindGameObjectWithTag("Player");
         playerPos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
         // Calculate the position the bird is going to attack. The player is moving, so make sure it attacks in front of him.

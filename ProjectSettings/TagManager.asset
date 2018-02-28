@@ -9,6 +9,7 @@ TagManager:
   - Stone
   - Bird
   - BirdPoop
+  - Ammo
   layers:
   - Default
   - TransparentFX
