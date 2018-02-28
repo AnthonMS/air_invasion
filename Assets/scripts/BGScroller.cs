@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BGScroller : MonoBehaviour {
 
-    public float speed;
-    Vector3 startPOS;
+    public float speed = -5f;
+    Vector2 startPOS;
 
 	// Use this for initialization
 	void Start () {
@@ -15,11 +15,19 @@ public class BGScroller : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
         transform.Translate((new Vector3(-1, 0, 0)) * speed * Time.deltaTime);
 
-     
-		
-	}
-    
+       
+        
 
-}
+
+
+
+
+
+
+    }
+
+
+} 

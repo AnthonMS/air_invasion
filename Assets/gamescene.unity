@@ -382,7 +382,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1230812307}
   - component: {fileID: 1230812308}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: background2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,7 +396,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1230812306}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19, y: 0, z: 0}
+  m_LocalPosition: {x: -19.2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1641390179}
@@ -456,7 +456,9 @@ GameObject:
   - component: {fileID: 1641390179}
   - component: {fileID: 1641390178}
   - component: {fileID: 1641390180}
-  m_Layer: 0
+  - component: {fileID: 1641390182}
+  - component: {fileID: 1641390181}
+  m_Layer: 8
   m_Name: Background1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -514,7 +516,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1641390177}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.5, y: 4.6, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 4}
   m_LocalScale: {x: 2.5343473, y: 1.9414282, z: 1}
   m_Children:
   - {fileID: 1230812307}
@@ -532,7 +534,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2651b087a372b4e4bbe655266dca15d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -2.8
+  speed: 2.8
+--- !u!114 &1641390181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1641390177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c718ca015a2354c459a7967ec8c2ed8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &1641390182
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1641390177}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &1676441001
 Prefab:
   m_ObjectHideFlags: 0
