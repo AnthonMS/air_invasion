@@ -16,6 +16,7 @@ public class playerStats : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+        health = 100;
         currentWeapon = Resources.Load("stone", typeof(GameObject)) as GameObject;
         tier = 1;
         increaseTier = 500;
@@ -44,6 +45,7 @@ public class playerStats : MonoBehaviour {
         if (!isProtecting)
         {
             Debug.Log(damage + " damage taken");
+            gameObject.SendMessage("updateHealth",damage);
         }
         else
         {
