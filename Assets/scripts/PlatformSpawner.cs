@@ -32,7 +32,7 @@ public class PlatformSpawner : MonoBehaviour {
             i++;
         }
         playerPos = new Vector2(player.transform.position.x, player.transform.position.y);
-        if (playerPos.x > latestGroundPos.x - 15)
+        if (playerPos.x > latestGroundPos.x - 35)
         {
             CreatePlatform();
         }

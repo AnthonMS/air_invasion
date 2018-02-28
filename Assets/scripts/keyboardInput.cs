@@ -55,19 +55,35 @@ public class keyboardInput : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            // throw/shoot current weapon
-            // Get mouse position
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Vector3 mousePos = ray.origin;
-            Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
-            // Create the bullet
-            GameObject weaponBullet = Instantiate(playerStats.currentWeapon, spawnPos, Quaternion.identity);
-            // Get the direction the bullet needs to fly in
-            Vector3 direction = mousePos - weaponBullet.transform.position;
-            direction.z = 0;
-            direction = direction.normalized;
-            // Make the bullet fly in that direction at the speed of you weapon
-            weaponBullet.GetComponent<Rigidbody2D>().velocity = direction * weaponBullet.GetComponent<stone>().speed;
+            if (!player.GetComponent<playerStats>().isProtecting)
+            {
+                if (player.GetComponent<playerStats>().ammo != 0)
+                {
+                    // throw/shoot current weapon
+                    // Get mouse position
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    Vector3 mousePos = ray.origin;
+                    Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+                    // Create the bullet
+                    GameObject weaponBullet = Instantiate(playerStats.currentWeapon, spawnPos, Quaternion.identity);
+                    // Get the direction the bullet needs to fly in
+                    Vector3 direction = mousePos - weaponBullet.transform.position;
+                    direction.z = 0;
+                    direction = direction.normalized;
+                    // Make the bullet fly in that direction at the speed of you weapon
+                    weaponBullet.GetComponent<Rigidbody2D>().velocity = direction * weaponBullet.GetComponent<stone>().speed;
+
+                    player.GetComponent<playerStats>().ammo -= 1;
+                } else
+                {
+                    Debug.Log("OUT OF AMMO!!!");
+                }
+                
+            } else
+            {
+                Debug.Log("You are protecting, can't use weapon!");
+            }
+            
         }
 
     }
