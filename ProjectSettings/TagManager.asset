@@ -10,6 +10,7 @@ TagManager:
   - Bird
   - BirdPoop
   - Ammo
+  - Button
   layers:
   - Default
   - TransparentFX

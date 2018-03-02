@@ -11,13 +11,17 @@ public class playerStats : MonoBehaviour {
     public GameObject currentWeapon;
     public int ammo;
     public int tier;
+    public Sprite protectSprite;
+    public Sprite normalSprite;
 
+    private SpriteRenderer spriteRender;
     private int lastTierIncrease;
     private int increaseTier;
 
 	// Use this for initialization
 	void Start ()
     {
+        spriteRender = GetComponent<SpriteRenderer>();
         currentWeapon = Resources.Load("stone", typeof(GameObject)) as GameObject;
         tier = 1;
         increaseTier = 500;
@@ -57,6 +61,11 @@ public class playerStats : MonoBehaviour {
     public void ChangeProtection(bool protect)
     {
         isProtecting = protect;
+        if (protect)
+            spriteRender.sprite = protectSprite;
+
+        if (!protect)
+            spriteRender.sprite = normalSprite;
     }
 
     public void GiveAmmo(int amount)
