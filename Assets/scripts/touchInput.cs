@@ -79,7 +79,7 @@ public class touchInput : MonoBehaviour
         Vector3 direction = touchPos - weaponBullet.transform.position;
         direction.z = 0;
         direction = direction.normalized;
-        weaponBullet.GetComponent<Rigidbody2D>().velocity = direction * weaponBullet.GetComponent<stone>().speed;
+        weaponBullet.GetComponent<Rigidbody2D>().velocity = direction * weaponBullet.GetComponent<weaponScript>().speed;
     }
 
     // This checks if there are a hit collider, if so, it checks if it is a button, if so, do not throw stone

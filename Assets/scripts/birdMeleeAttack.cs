@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class seagulMeleeAttack : MonoBehaviour
+public class birdMeleeAttack : MonoBehaviour
 {
     //private float orgSpeed;
     public float speed = 10;
     public float damage = 10;
     public float xOffset = 5;
+    public float health = 10;
 
     // Instantiate private variables
     private GameObject player;
@@ -18,6 +19,8 @@ public class seagulMeleeAttack : MonoBehaviour
     private GameObject whiteFeathers;
 
     public bool isDead = false;
+    private bool isFlipped = false;
+    private float startXPos;
 
 
 
@@ -34,6 +37,14 @@ public class seagulMeleeAttack : MonoBehaviour
         // Calculate the position the bird is going to attack. The player is moving, so make sure it attacks in front of him.
         // This looks better then if the bird keeps updating the playerPos, as it will almost always get behind him and needs to catch up again.
         attackPos = new Vector3(playerPos.x + xOffset, playerPos.y - 5, playerPos.z);
+
+        startXPos = transform.position.x;
+        Debug.Log("Start X: "+startXPos + "Attack X: " + attackPos.x);
+        if (attackPos.x > startXPos)
+        {
+            Debug.Log("START: FLIP THE BIRD!");
+            GetComponent<SpriteRenderer>().flipY = true;
+        }
     }
 	
 	// Update is called once per frame
@@ -72,11 +83,14 @@ public class seagulMeleeAttack : MonoBehaviour
         }
         else if (collision.tag == "Stone")
         {
-            //Debug.Log("Bird got hit by stone")
-            killBird(true);
-            Destroy(collision.gameObject);
-            //collision.gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-            //player.SendMessage("updateScore");
+            //Debug.Log("Bird took " + collision.gameObject.GetComponent<weaponScript>().damage + " Damage!");
+            health -= collision.gameObject.GetComponent<weaponScript>().damage;
+            if (health <= 0)
+            {
+                //Debug.Log("Bird's health is below 0");
+                killBird(true);
+                //player.SendMessage("updateScore");
+            }
         }
     }
 

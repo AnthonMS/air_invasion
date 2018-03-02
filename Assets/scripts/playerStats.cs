@@ -24,7 +24,7 @@ public class playerStats : MonoBehaviour {
         spriteRender = GetComponent<SpriteRenderer>();
         currentWeapon = Resources.Load("stone", typeof(GameObject)) as GameObject;
         tier = 1;
-        increaseTier = 500;
+        increaseTier = 50;
         ammo += 10;
     }
 

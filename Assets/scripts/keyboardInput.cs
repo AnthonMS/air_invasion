@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class keyboardInput : MonoBehaviour
 {
-    public float runningSpeed = 3f;
-    public float jumpSpeed = 500.0f;
     private Rigidbody2D rigidBody;
     // Sprites to use
     public Sprite protectSprite;
@@ -28,14 +26,14 @@ public class keyboardInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.right * runningSpeed * Time.deltaTime);
+        transform.Translate(Vector3.right * playerStats.runningSpeed * Time.deltaTime);
 
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             // This checks if the player is already jumping, if not, make him jump.
             if (isJumping == false)
             {
-                rigidBody.AddForce(Vector2.up * jumpSpeed);
+                rigidBody.AddForce(Vector2.up * playerStats.jumpSpeed);
                 isJumping = true;
             }
         }
@@ -71,7 +69,7 @@ public class keyboardInput : MonoBehaviour
                     direction.z = 0;
                     direction = direction.normalized;
                     // Make the bullet fly in that direction at the speed of you weapon
-                    weaponBullet.GetComponent<Rigidbody2D>().velocity = direction * weaponBullet.GetComponent<stone>().speed;
+                    weaponBullet.GetComponent<Rigidbody2D>().velocity = direction * weaponBullet.GetComponent<weaponScript>().speed;
 
                     player.GetComponent<playerStats>().ammo -= 1;
                 } else
