@@ -5,10 +5,10 @@ using UnityEngine;
 public class birdMeleeAttack : MonoBehaviour
 {
     //private float orgSpeed;
-    public float speed = 10;
-    public float damage = 10;
-    public float xOffset = 5;
-    public float health = 10;
+    public float speed;
+    public float damage;
+    public float xOffset;
+    public float health;
 
     // Instantiate private variables
     private GameObject player;
@@ -19,7 +19,6 @@ public class birdMeleeAttack : MonoBehaviour
     private GameObject whiteFeathers;
 
     public bool isDead = false;
-    private bool isFlipped = false;
     private float startXPos;
 
 
@@ -36,13 +35,13 @@ public class birdMeleeAttack : MonoBehaviour
         playerPos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
         // Calculate the position the bird is going to attack. The player is moving, so make sure it attacks in front of him.
         // This looks better then if the bird keeps updating the playerPos, as it will almost always get behind him and needs to catch up again.
-        attackPos = new Vector3(playerPos.x + xOffset, playerPos.y - 5, playerPos.z);
+        attackPos = new Vector3(playerPos.x + xOffset, -5, playerPos.z);
 
         startXPos = transform.position.x;
-        Debug.Log("Start X: "+startXPos + "Attack X: " + attackPos.x);
+        //Debug.Log("Start X: "+startXPos + "Attack X: " + attackPos.x);
         if (attackPos.x > startXPos)
         {
-            Debug.Log("START: FLIP THE BIRD!");
+            //Debug.Log("START: FLIP THE BIRD!");
             GetComponent<SpriteRenderer>().flipY = true;
         }
     }
@@ -67,7 +66,6 @@ public class birdMeleeAttack : MonoBehaviour
         //Debug.Log(collision.tag);
         if (collision.tag == "Player")
         {
-            // This destroys the one holding this script, in this case the Bird/Seagul
             if (!isDead) // If not dead
             {
                 killBird(true);
@@ -81,7 +79,7 @@ public class birdMeleeAttack : MonoBehaviour
                 killBird(true);
             }
         }
-        else if (collision.tag == "Stone")
+        else if (collision.tag == "Weapon")
         {
             //Debug.Log("Bird took " + collision.gameObject.GetComponent<weaponScript>().damage + " Damage!");
             health -= collision.gameObject.GetComponent<weaponScript>().damage;

@@ -70,6 +70,18 @@ public class keyboardInput : MonoBehaviour
                     direction = direction.normalized;
                     // Make the bullet fly in that direction at the speed of you weapon
                     weaponBullet.GetComponent<Rigidbody2D>().velocity = direction * weaponBullet.GetComponent<weaponScript>().speed;
+                    // Flip the weapon sprite, if mousePos is behind player
+                    if (mousePos.x < player.transform.position.x)
+                    {
+                        weaponBullet.GetComponent<SpriteRenderer>().flipX = true;
+                        // rotate the bullet counter clock wise
+                        weaponBullet.SendMessage("RotationDirection", false);
+                    }
+                    else
+                    {
+                        // rotate bullet clock wise
+                        weaponBullet.SendMessage("RotationDirection", true);
+                    }
 
                     player.GetComponent<playerStats>().ammo -= 1;
                 } else

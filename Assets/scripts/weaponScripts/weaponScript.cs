@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class weaponScript : MonoBehaviour {
 
-    public float damage = 10;
-    public float speed = 20;
+    public string weaponType;
+    public float damage;
+    public float speed;
+    public float rotationSpeed;
+    //private bool clockRotation;
+
+    private Rigidbody2D rb;
 
     // Use this for initialization
     void Start()
     {
-
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        rb.MoveRotation(rb.rotation + rotationSpeed * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,6 +35,23 @@ public class weaponScript : MonoBehaviour {
         else if (collision.tag == "Ground")
         {
             Destroy(transform.gameObject);
+        }
+        else if (collision.tag == "Boss")
+        {
+            Destroy(transform.gameObject);
+        }
+    }
+
+    public void RotationDirection(bool clockwise)
+    {
+        //clockRotation = clockwise;
+        if (clockwise)
+        {
+            rotationSpeed = -rotationSpeed;
+        }
+        else
+        {
+            rotationSpeed = +rotationSpeed;
         }
     }
 }

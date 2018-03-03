@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a8cab64e9b28004fa7974638bca8bfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnEveryX: 0
+  spawnEveryX: 10
 --- !u!224 &63172462
 RectTransform:
   m_ObjectHideFlags: 0
@@ -223,6 +223,24 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0707d4f08105e694a861d360ed5476f8, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &152158818 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1389233795827450, guid: 470c620c40f95ef49a7ae2713094daa0,
+    type: 2}
+  m_PrefabInternal: {fileID: 1950112362}
+--- !u!114 &152158822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 152158818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce608c8f27554b47aa5040826f65b1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon_1: {fileID: 0}
+  weapon_2: {fileID: 0}
 --- !u!1 &174225315
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,7 +398,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -746,7 +764,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1254,6 +1272,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3061afafa56f96478b55c0bfef40407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1950112362
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4863708363754838, guid: 470c620c40f95ef49a7ae2713094daa0, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 7.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 4863708363754838, guid: 470c620c40f95ef49a7ae2713094daa0, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 4863708363754838, guid: 470c620c40f95ef49a7ae2713094daa0, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4863708363754838, guid: 470c620c40f95ef49a7ae2713094daa0, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4863708363754838, guid: 470c620c40f95ef49a7ae2713094daa0, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4863708363754838, guid: 470c620c40f95ef49a7ae2713094daa0, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4863708363754838, guid: 470c620c40f95ef49a7ae2713094daa0, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4863708363754838, guid: 470c620c40f95ef49a7ae2713094daa0, type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 50268702001752638, guid: 470c620c40f95ef49a7ae2713094daa0, type: 2}
+    - {fileID: 61168157093499964, guid: 470c620c40f95ef49a7ae2713094daa0, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: 470c620c40f95ef49a7ae2713094daa0, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &2022020420
 GameObject:
   m_ObjectHideFlags: 0
@@ -1320,7 +1382,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &2022020423
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1389,8 +1451,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4703ee44960342f4d8263e89b2d4ab9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runningSpeed: 3
-  jumpSpeed: 550
   protectSprite: {fileID: 21300000, guid: b5b8b12b0a730f740923cd3c7aedb481, type: 3}
   normalSprite: {fileID: 21300000, guid: af5eaad56dda2b4438c5d9c6244336f4, type: 3}
 --- !u!114 &2022020426
@@ -1413,6 +1473,7 @@ MonoBehaviour:
   tier: 0
   protectSprite: {fileID: 21300000, guid: b5b8b12b0a730f740923cd3c7aedb481, type: 3}
   normalSprite: {fileID: 21300000, guid: af5eaad56dda2b4438c5d9c6244336f4, type: 3}
+  increaseTier: 100
 --- !u!114 &2022020427
 MonoBehaviour:
   m_ObjectHideFlags: 0

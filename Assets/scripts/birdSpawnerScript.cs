@@ -16,6 +16,9 @@ public class birdSpawnerScript : MonoBehaviour
     private int birdHealth = 10;
     private int birdSpeed = 10;
     private int birdXOffset = 10;
+    private bool bossFight = false;
+    private int bossTier;
+    private string bossToSpawn = "greenDragon";
 
     // Use this for initialization
     void Start()
@@ -25,23 +28,28 @@ public class birdSpawnerScript : MonoBehaviour
         playerStats = player.GetComponent<playerStats>();
         playerPos = new Vector2(player.transform.position.x, player.transform.position.y);
         spawnEveryX = 10;
+        bossTier = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        playerPos = new Vector2(player.transform.position.x, player.transform.position.y);
-        if (playerLastXPos + spawnEveryX < player.transform.position.x)
+        if (!bossFight)
         {
-            int randomNum = Random.Range(1, 101); // Random number between 1 and 100. 101 is exclusive
-            if (randomNum < 99) // If less than 50
+            playerPos = new Vector2(player.transform.position.x, player.transform.position.y);
+            if (playerLastXPos + spawnEveryX < player.transform.position.x)
             {
-                SpawnBirdTest();
-            } else
-            {
-                SpawnRangedBird();
+                int randomNum = Random.Range(1, 101); // Random number between 1 and 100. 101 is exclusive
+                if (randomNum < 50) // If less than 50
+                {
+                    SpawnBirdTest();
+                }
+                else
+                {
+                    SpawnRangedBird();
+                }
+
             }
-            
         }
     }
 
@@ -88,16 +96,43 @@ public class birdSpawnerScript : MonoBehaviour
         Vector3 camPos = cam.transform.position;
         float y = camPos.y + 7; // This y value will make it spawn right above the camera view.
 
-        SwitchTierSetting();
+        //SwitchTierSetting();
 
         GameObject birdInstance = Instantiate(Resources.Load(birdToSpawn, typeof(GameObject))) as GameObject;
-        birdInstance.GetComponent<birdMeleeAttack>().health = birdHealth;
-        birdInstance.GetComponent<birdMeleeAttack>().speed = birdSpeed;
-        birdInstance.GetComponent<birdMeleeAttack>().xOffset = birdXOffset;
+        //birdInstance.GetComponent<birdMeleeAttack>().health = birdHealth;
+        //birdInstance.GetComponent<birdMeleeAttack>().speed = birdSpeed;
+        //birdInstance.GetComponent<birdMeleeAttack>().xOffset = birdXOffset;
         birdInstance.transform.Translate(new Vector3(randomX, y, 0));
         birdInstance.transform.parent = transform;
 
-        Debug.Log("Spawned a " + birdToSpawn + " With " + birdHealth + " Health, And " + birdSpeed + " Speed, And xOffset " + birdXOffset);
+        //Debug.Log("Spawned a " + birdToSpawn + " With " + birdHealth + " Health, And " + birdSpeed + " Speed, And xOffset " + birdXOffset);
+    }
+
+
+    private void SpawnBoss()
+    {
+        Vector3 camPos = cam.transform.position;
+        float y = 0;
+        float x = camPos.x + 25;
+
+        GameObject birdInstance = Instantiate(Resources.Load(bossToSpawn, typeof(GameObject))) as GameObject;
+        birdInstance.transform.Translate(new Vector3(x, y, 0));
+    }
+
+
+    public void StartStopBossFight(bool bossFight)
+    {
+        if (bossFight)
+        {
+            this.bossFight = true;
+            Debug.Log("Starting Boss Fight!");
+            SpawnBoss();
+        }
+        else
+        {
+            this.bossFight = false;
+            Debug.Log("Ending Boss Fight!");
+        }
     }
 
     private void SwitchTierSetting()
@@ -106,9 +141,10 @@ public class birdSpawnerScript : MonoBehaviour
         {
             case 1:
                 birdToSpawn = "yellowBird";
-                birdHealth = 10;
-                birdSpeed = 5;
-                birdXOffset = 10;
+                bossToSpawn = "greenDragon";
+                //birdHealth = 10;
+                //birdSpeed = 5;
+                //birdXOffset = 10;
                 break;
             case 2:
                 birdHealth = 15;
@@ -123,7 +159,7 @@ public class birdSpawnerScript : MonoBehaviour
             case 4:
                 birdHealth = 25;
                 birdSpeed = 8;
-                playerStats.currentWeapon.GetComponent<weaponScript>().damage = 20;
+                //playerStats.currentWeapon.GetComponent<weaponScript>().damage = 20;
                 break;
             case 5:
                 birdHealth = 30;
@@ -140,7 +176,7 @@ public class birdSpawnerScript : MonoBehaviour
                 break;
             case 8:
                 birdHealth = 45;
-                playerStats.currentWeapon.GetComponent<weaponScript>().damage = 40;
+                //playerStats.currentWeapon.GetComponent<weaponScript>().damage = 40;
                 break;
             case 9:
                 birdHealth = 50;
@@ -153,7 +189,7 @@ public class birdSpawnerScript : MonoBehaviour
                 break;
             case 12:
                 birdHealth = 65;
-                playerStats.currentWeapon.GetComponent<weaponScript>().damage = 60;
+                //playerStats.currentWeapon.GetComponent<weaponScript>().damage = 60;
                 break;
             case 13:
                 birdHealth = 70;

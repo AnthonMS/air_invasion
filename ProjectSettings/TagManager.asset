@@ -11,6 +11,9 @@ TagManager:
   - BirdPoop
   - Ammo
   - Button
+  - Weapon
+  - WeaponUpgrade
+  - Boss
   layers:
   - Default
   - TransparentFX

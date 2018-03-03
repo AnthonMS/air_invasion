@@ -80,6 +80,18 @@ public class touchInput : MonoBehaviour
         direction.z = 0;
         direction = direction.normalized;
         weaponBullet.GetComponent<Rigidbody2D>().velocity = direction * weaponBullet.GetComponent<weaponScript>().speed;
+        // Flip the weapon sprite, if mousePos is behind player
+        if (touchPos.x < player.transform.position.x)
+        {
+            weaponBullet.GetComponent<SpriteRenderer>().flipX = true;
+            // rotate the bullet counter clock wise
+            weaponBullet.SendMessage("RotationDirection", false);
+        }
+        else
+        {
+            // rotate bullet clock wise
+            weaponBullet.SendMessage("RotationDirection", true);
+        }
     }
 
     // This checks if there are a hit collider, if so, it checks if it is a button, if so, do not throw stone
