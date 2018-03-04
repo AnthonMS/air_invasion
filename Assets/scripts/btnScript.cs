@@ -8,10 +8,15 @@ public class btnScript : MonoBehaviour
     public Sprite clickedSprite;
     public Sprite notClickedSprite;
 
+    public Vector3 offset;
+
 	// Use this for initialization
 	void Start ()
     {
         spriteRender = GetComponent<SpriteRenderer>();
+        // This takes the button and positions it in the bottom left corner, with an offset. 
+        // (Offset is set in Unity on the gameobject that holds this script)
+        transform.position = Camera.main.ScreenToWorldPoint(offset);
 	}
 	
 	// Update is called once per frame
@@ -28,4 +33,5 @@ public class btnScript : MonoBehaviour
         if (!clicked)
             spriteRender.sprite = notClickedSprite;
     }
+
 }

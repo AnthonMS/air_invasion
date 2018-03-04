@@ -23,7 +23,9 @@ public class DelayedStartScript : MonoBehaviour
         float pauseTime = Time.realtimeSinceStartup + 3.5f;
         while (Time.realtimeSinceStartup < pauseTime)
             yield return 0;
-        countDown.gameObject.SetActive(false);
+        //countDown.gameObject.SetActive(false);
+        Destroy(countDown.gameObject);
+        Destroy(gameObject);
         Time.timeScale = 1;
     }
 }
