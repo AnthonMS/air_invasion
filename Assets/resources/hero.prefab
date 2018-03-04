@@ -122,6 +122,7 @@ MonoBehaviour:
   tier: 0
   protectSprite: {fileID: 0}
   normalSprite: {fileID: 0}
+  increaseTier: 100
 --- !u!212 &212861094182962794
 SpriteRenderer:
   m_ObjectHideFlags: 1

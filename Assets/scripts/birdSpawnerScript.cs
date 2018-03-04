@@ -111,6 +111,8 @@ public class birdSpawnerScript : MonoBehaviour
 
     private void SpawnBoss()
     {
+        SwitchTierSetting();
+
         Vector3 camPos = cam.transform.position;
         float y = 0;
         float x = camPos.x + 25;
