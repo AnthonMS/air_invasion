@@ -15,7 +15,6 @@ public class ammoSpawner : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerPos = new Vector2(player.transform.position.x, player.transform.position.y);
-        spawnEveryX = 50;
     }
 	
 	// Update is called once per frame
