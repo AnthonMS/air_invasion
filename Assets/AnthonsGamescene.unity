@@ -354,7 +354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickedSprite: {fileID: 21300000, guid: f0d840eea41082347b99a863ce1ea4b2, type: 3}
   notClickedSprite: {fileID: 21300000, guid: 7436fa25a8665a94f99aee388ccd7736, type: 3}
-  offset: {x: 50, y: 120, z: 10}
+  offset: {x: 100, y: 235, z: 10}
 --- !u!1 &280880285
 GameObject:
   m_ObjectHideFlags: 0
@@ -850,7 +850,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickedSprite: {fileID: 21300000, guid: a726ba12ed36e1a4a863c3b6c17ac644, type: 3}
   notClickedSprite: {fileID: 21300000, guid: a8c5ce81340656547a9bf6f30b56d9d1, type: 3}
-  offset: {x: 115, y: 50, z: 10}
+  offset: {x: 200, y: 100, z: 10}
 --- !u!4 &590542622 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4726018776074408, guid: 0707d4f08105e694a861d360ed5476f8,
