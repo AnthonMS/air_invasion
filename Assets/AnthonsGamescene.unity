@@ -241,6 +241,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapon_1: {fileID: 0}
   weapon_2: {fileID: 0}
+--- !u!114 &206863420 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114290737553253606, guid: a3a79bd8d62af412bb2892fc122663b0,
+    type: 2}
+  m_PrefabInternal: {fileID: 1855458393}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &244923789
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,7 +360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickedSprite: {fileID: 21300000, guid: f0d840eea41082347b99a863ce1ea4b2, type: 3}
   notClickedSprite: {fileID: 21300000, guid: 7436fa25a8665a94f99aee388ccd7736, type: 3}
-  offset: {x: 100, y: 235, z: 10}
+  offset: {x: 50, y: 120, z: 10}
 --- !u!1 &280880285
 GameObject:
   m_ObjectHideFlags: 0
@@ -850,7 +856,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickedSprite: {fileID: 21300000, guid: a726ba12ed36e1a4a863c3b6c17ac644, type: 3}
   notClickedSprite: {fileID: 21300000, guid: a8c5ce81340656547a9bf6f30b56d9d1, type: 3}
-  offset: {x: 200, y: 100, z: 10}
+  offset: {x: 115, y: 50, z: 10}
 --- !u!4 &590542622 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4726018776074408, guid: 0707d4f08105e694a861d360ed5476f8,
@@ -1538,6 +1544,10 @@ Prefab:
       propertyPath: m_FontData.m_MinSize
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1477879164028324, guid: a3a79bd8d62af412bb2892fc122663b0, type: 2}
+      propertyPath: m_TagString
+      value: Health
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3a79bd8d62af412bb2892fc122663b0, type: 2}
   m_IsPrefabParent: 0
@@ -1755,7 +1765,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2022020420}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4703ee44960342f4d8263e89b2d4ab9c, type: 3}
   m_Name: 
@@ -1782,6 +1792,7 @@ MonoBehaviour:
   tier: 0
   protectSprite: {fileID: 21300000, guid: b5b8b12b0a730f740923cd3c7aedb481, type: 3}
   normalSprite: {fileID: 21300000, guid: af5eaad56dda2b4438c5d9c6244336f4, type: 3}
+  healthText: {fileID: 206863420}
   increaseTier: 100
 --- !u!114 &2022020427
 MonoBehaviour:
@@ -1802,7 +1813,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2022020420}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d44614dc9ebf7f40a5caf82ce1c1baf, type: 3}
   m_Name: 
