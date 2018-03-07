@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class playerStats : MonoBehaviour {
@@ -13,7 +14,7 @@ public class playerStats : MonoBehaviour {
     public int tier;
     public Sprite protectSprite;
     public Sprite normalSprite;
-    
+    public Text healthText;
 
     private SpriteRenderer spriteRender;
     private int lastTierIncrease;
@@ -29,6 +30,8 @@ public class playerStats : MonoBehaviour {
         tier = 1;
         weaponTier = 1;
         ammo += 10;
+        health = 100;
+        updateHealth();
     }
 
     // Update is called once per frame
@@ -54,11 +57,26 @@ public class playerStats : MonoBehaviour {
         //Debug.Log("Player takes " + damage + " damage");
         if (!isProtecting)
         {
-            //Debug.Log(damage + " damage taken");
+            health -= damage;
+            updateHealth();
+            //Debug.Log(damage + " melee damage taken");
         }
         else
         {
             //Debug.Log("Player is protecting");
+        }
+    }
+
+
+    public void updateHealth()
+    {
+        if(health >= 0)
+        {
+            healthText.text = "HP: " + health;
+        }
+        else
+        {
+            healthText.text = "RIP";
         }
     }
 
