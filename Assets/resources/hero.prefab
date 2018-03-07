@@ -100,8 +100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4703ee44960342f4d8263e89b2d4ab9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runningSpeed: 3
-  jumpSpeed: 550
   protectSprite: {fileID: 21300000, guid: b5b8b12b0a730f740923cd3c7aedb481, type: 3}
   normalSprite: {fileID: 21300000, guid: af5eaad56dda2b4438c5d9c6244336f4, type: 3}
 --- !u!114 &114558519273453372
@@ -115,8 +113,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89099926571ed4448a3d1a36a8fcb50a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  runningSpeed: 3
+  jumpSpeed: 500
   health: 100
+  isProtecting: 0
   currentWeapon: {fileID: 0}
+  ammo: 0
+  tier: 0
+  protectSprite: {fileID: 0}
+  normalSprite: {fileID: 0}
+  increaseTier: 100
 --- !u!212 &212861094182962794
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -148,8 +154,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 423516193
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: af5eaad56dda2b4438c5d9c6244336f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
