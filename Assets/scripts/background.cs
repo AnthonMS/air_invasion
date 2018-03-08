@@ -5,11 +5,11 @@ using UnityEngine;
 public class background : MonoBehaviour {
 
     public float speed;
-    Vector3 startPOS;
+    //Vector3 startPOS;
 
     // Use this for initialization
     void Start () {
-        startPOS = transform.position;
+        //startPOS = transform.position;
     }
 	
 	// Update is called once per frame

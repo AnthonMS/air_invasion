@@ -16,7 +16,7 @@ public class birdSpawnerScript : MonoBehaviour
     private int birdHealth = 10;
     private int birdSpeed = 10;
     private int birdXOffset = 10;
-    private bool bossFight = false;
+    public bool bossFight = false;
     private int bossTier;
     private string bossToSpawn = "greenDragon";
 
@@ -40,7 +40,7 @@ public class birdSpawnerScript : MonoBehaviour
             if (playerLastXPos + spawnEveryX < player.transform.position.x)
             {
                 int randomNum = Random.Range(1, 101); // Random number between 1 and 100. 101 is exclusive
-                if (randomNum < 50) // If less than 50
+                if (randomNum < 70) // If less than 50
                 {
                     SpawnBirdTest();
                 }
@@ -64,7 +64,6 @@ public class birdSpawnerScript : MonoBehaviour
         GameObject birdInstance = Instantiate(Resources.Load("yellowBird", typeof(GameObject))) as GameObject;
         birdInstance.transform.Translate(new Vector3(randomX, y, 0));
         birdInstance.transform.parent = transform;
-
     }
 
     private void SpawnRangedBird()
@@ -149,14 +148,16 @@ public class birdSpawnerScript : MonoBehaviour
                 //birdXOffset = 10;
                 break;
             case 2:
-                birdHealth = 15;
-                birdSpeed = 6;
-                birdXOffset = 10;
+                birdToSpawn = "brownBirdPot";
+                //birdHealth = 15;
+                //birdSpeed = 6;
+                //birdXOffset = 10;
                 break;
             case 3:
-                birdHealth = 20;
-                birdSpeed = 7;
-                birdXOffset = 8;
+                birdToSpawn = "blueBirdHat";
+                //birdHealth = 20;
+                //birdSpeed = 7;
+                //birdXOffset = 8;
                 break;
             case 4:
                 birdHealth = 25;
