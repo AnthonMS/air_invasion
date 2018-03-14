@@ -349,6 +349,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scorenum: 0
   scoreText: {fileID: 1740561964}
+  health: 0
+  healthText: {fileID: 1624214030}
 --- !u!1 &1215573488
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,6 +477,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
+--- !u!114 &1624214030 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114290737553253606, guid: a3a79bd8d62af412bb2892fc122663b0,
+    type: 2}
+  m_PrefabInternal: {fileID: 1842355438}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!114 &1740561964 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114744566923579974, guid: a3a79bd8d62af412bb2892fc122663b0,
