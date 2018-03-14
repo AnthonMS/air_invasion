@@ -118,7 +118,7 @@ public class playerStats : MonoBehaviour
             GameObject testWep = collision.gameObject.GetComponent<weaponUpgrade>().GetWeapon(weaponTier);
             if (testWep != null)
             {
-                //Debug.Log(testWep.name);
+                Debug.Log(testWep.name);
                 currentWeapon = testWep;
             }
             else
