@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour {
     public int scorenum;
     public Text scoreText;
+    public float health;
+    public Text healthText;
 
 
     public Score()
@@ -16,6 +18,7 @@ public class Score : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         scorenum = 0;
+        health = 100;
 		
 	}
 	
@@ -29,5 +32,13 @@ public class Score : MonoBehaviour {
         scorenum++;
         scoreText.text="score="+scorenum;
         
+    }
+
+    public void updateHealth(float damage)
+    {
+        Debug.Log("updating health");
+        health-=damage;
+        healthText.text = "Health=" + health;
+
     }
 }
