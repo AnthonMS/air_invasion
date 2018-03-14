@@ -10,6 +10,11 @@ TagManager:
   - Bird
   - BirdPoop
   - Ammo
+  - Button
+  - Weapon
+  - WeaponUpgrade
+  - Boss
+  - Health
   layers:
   - Default
   - TransparentFX
@@ -46,4 +51,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 200300531
+    locked: 0
+  - name: Middleground
+    uniqueID: 898026457
+    locked: 0
+  - name: Foreground
+    uniqueID: 423516193
     locked: 0

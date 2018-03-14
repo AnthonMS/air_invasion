@@ -8,8 +8,6 @@ public class birdRangedAttack : MonoBehaviour {
     public float backSpeed = 5;
     public float damage = 10;
     public bool isDead = false;
-    public Sprite leftSprite;
-    public Sprite rightSprite;
 
     private GameObject player;
     private Vector3 playerPos;
@@ -93,10 +91,12 @@ public class birdRangedAttack : MonoBehaviour {
             // The bird spawned to the right
             transform.Translate(Vector3.left * backSpeed * Time.deltaTime);
         }
-        // This will calculate if the bird will have to change direction
-        camPos = cam.transform.position;
+        // This will calculate if the bird hits the border of screen and will have to change direction
+        var dist = (transform.position - Camera.main.transform.position).z;
+        var leftBorder = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, dist)).x;
+        var rightBorder = Camera.main.ViewportToWorldPoint(new Vector3(1, 0, dist)).x;
         myPos = transform.position;
-        if (camPos.x - 20 > myPos.x && camPos.x > myPos.x)
+        if (leftBorder > myPos.x)
         {
             // It's to far left
             flyRight = true;
@@ -104,7 +104,7 @@ public class birdRangedAttack : MonoBehaviour {
             //spriteRender.sprite = rightSprite;
             droppedPoop = false;
         }
-        else if (myPos.x > camPos.x + 20)
+        else if (rightBorder < myPos.x)
         {
             // It's to far right
             flyRight = false;
@@ -112,11 +112,13 @@ public class birdRangedAttack : MonoBehaviour {
             //spriteRender.sprite = leftSprite;
             droppedPoop = false;
         }
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Stone")
+        if (collision.tag == "Weapon")
         {
             // The bird is dead, but it might have just dropped a poop
             // Because of this, we will just make it invisible and not collidable
@@ -128,7 +130,7 @@ public class birdRangedAttack : MonoBehaviour {
             Destroy(collision.gameObject); // Destroy the stone
             GameObject feathers = (GameObject)Instantiate(whiteFeathers, transform.position, transform.rotation); // Create feathers
             Destroy(feathers, 2f); // Destory feathers after 2 seconds when they are gone anyway.
-            player.SendMessage("updateScore");
+            //player.SendMessage("updateScore");
         }
     }
 }

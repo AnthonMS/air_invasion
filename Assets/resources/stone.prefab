@@ -22,10 +22,10 @@ GameObject:
   - component: {fileID: 212011127984971606}
   - component: {fileID: 61208093214769136}
   - component: {fileID: 50282980337505792}
-  - component: {fileID: 114069565877389080}
+  - component: {fileID: 114825213380279670}
   m_Layer: 0
   m_Name: stone
-  m_TagString: Stone
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,7 +88,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.66, y: 8}
   m_EdgeRadius: 0
---- !u!114 &114069565877389080
+--- !u!114 &114825213380279670
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -96,11 +96,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1018407584477388}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 742a954394f9aa447b373cd9c7bc39d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 2aa0b932477e72e46a1284f2858cdc7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponType: Stone
   damage: 10
   speed: 20
+  rotationSpeed: 350
 --- !u!212 &212011127984971606
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -132,8 +134,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 423516193
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3fbb3729c4eae754497ae9cf775cf373, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
