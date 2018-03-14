@@ -6,12 +6,12 @@ public class BackgroundManager : MonoBehaviour
 {
     //private GameObject player;
     private float bgHorizontalLength;
+    public float bgSpeed;
 
     // Use this for initialization
     void Start()
     {
-        //bgHorizontalLength = transform.renderer
-        //Debug.Log(GetComponent<Renderer>().bounds.size);
+        //Debug.Log(transform.position);
         bgHorizontalLength = GetComponent<Renderer>().bounds.size.x;
     }
 
@@ -28,6 +28,8 @@ public class BackgroundManager : MonoBehaviour
             Debug.Log("BG OUT OF SIGHT!");
             RepositionBackground();
         }
+
+        transform.Translate(Vector3.right * bgSpeed * Time.deltaTime);
     }
 
     private void RepositionBackground()

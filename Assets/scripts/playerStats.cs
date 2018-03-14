@@ -70,9 +70,9 @@ public class playerStats : MonoBehaviour {
 
     public void updateHealth()
     {
-        if(health >= 0)
+        if(health > 0)
         {
-            healthText.text = "HP: " + health;
+            healthText.text = "Health: " + health;
         }
         else
         {
