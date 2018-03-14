@@ -19,6 +19,7 @@ public class Score : MonoBehaviour {
 	void Start () {
         scorenum = 0;
         health = 100;
+        updateScoreP(0);
 		
 	}
 	
@@ -27,12 +28,21 @@ public class Score : MonoBehaviour {
 		
 	}
 
+    public void updateScoreP(int score)
+    {
+        //Debug.Log("updating score");
+        scorenum += score;
+        scoreText.text = "Score: " + scorenum;
+
+    }
     public void updateScore(){
-        Debug.Log("updating score");
+       // Debug.Log("updating score");
         scorenum++;
-        scoreText.text="score="+scorenum;
+        scoreText.text="Score: "+scorenum;
         
     }
+
+
 
     public void updateHealth(float damage)
     {

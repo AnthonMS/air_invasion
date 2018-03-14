@@ -130,7 +130,7 @@ public class birdRangedAttack : MonoBehaviour {
             Destroy(collision.gameObject); // Destroy the stone
             GameObject feathers = (GameObject)Instantiate(whiteFeathers, transform.position, transform.rotation); // Create feathers
             Destroy(feathers, 2f); // Destory feathers after 2 seconds when they are gone anyway.
-            //player.SendMessage("updateScore");
+            player.SendMessage("updateScoreP",2);
         }
     }
 }
