@@ -1,4 +1,9 @@
-﻿public class playerStats : MonoBehaviour
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.UI;
+using UnityEngine;
+
+public class playerStats : MonoBehaviour
 {
 
     public float runningSpeed = 3f;
