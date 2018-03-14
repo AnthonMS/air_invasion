@@ -8,7 +8,7 @@ public class weaponUpgrade : MonoBehaviour
     // This is all the gameobject variables for the different tiers of weapons
     public GameObject weapon_1;
     public GameObject weapon_2;
-    //public GameObject weapon_3;
+    public GameObject weapon_3;
     //public GameObject weapon_4;
     //public GameObject weapon_5;
     //public GameObject weapon_6;
@@ -22,6 +22,7 @@ public class weaponUpgrade : MonoBehaviour
     {
         weapon_1 = Resources.Load("stone", typeof(GameObject)) as GameObject;
         weapon_2 = Resources.Load("silverAxe", typeof(GameObject)) as GameObject;
+        weapon_3 = Resources.Load("goldenAxe", typeof(GameObject)) as GameObject;
     }
 
     // Update is called once per frame
@@ -36,10 +37,17 @@ public class weaponUpgrade : MonoBehaviour
         switch (weaponTier)
         {
             case 1:
+                Debug.Log("case1");
                 returnVal = weapon_1;
                 break;
             case 2:
+                Debug.Log("case2");
                 returnVal = weapon_2;
+                break;
+
+            case 3:
+                Debug.Log("case3");
+                returnVal = weapon_3;
                 break;
             default:
                 returnVal = null;
