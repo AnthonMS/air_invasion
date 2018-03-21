@@ -15,6 +15,7 @@ TagManager:
   - WeaponUpgrade
   - Boss
   - Health
+  - AudioManager
   layers:
   - Default
   - TransparentFX

@@ -84,6 +84,7 @@ public class keyboardInput : MonoBehaviour
                     }
 
                     player.GetComponent<playerStats>().ammo -= 1;
+                    GameObject.FindGameObjectWithTag("AudioManager").SendMessage("PlayThrowingSound");
                 } else
                 {
                     Debug.Log("OUT OF AMMO!!!");
