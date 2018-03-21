@@ -39,6 +39,8 @@ public class playerStats : MonoBehaviour
     void Update()
     {
         checkTierIncrease();
+        gameObject.SendMessage("updateAmmo");
+
     }
 
     private void checkTierIncrease(){

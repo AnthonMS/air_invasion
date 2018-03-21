@@ -22,7 +22,7 @@ public class weaponUpgrade : MonoBehaviour
     {
         weapon_1 = Resources.Load("stone", typeof(GameObject)) as GameObject;
         weapon_2 = Resources.Load("silverAxe", typeof(GameObject)) as GameObject;
-        weapon_3 = Resources.Load("goldenAxe", typeof(GameObject)) as GameObject;
+        weapon_3 = Resources.Load("ball_bowling1", typeof(GameObject)) as GameObject;
     }
 
     // Update is called once per frame

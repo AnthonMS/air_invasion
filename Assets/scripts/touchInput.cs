@@ -73,24 +73,30 @@ public class touchInput : MonoBehaviour
     // This just throws the stone in the direction of touch position.
     private void ThrowStone(Ray ray)
     {
-        Vector3 touchPos = ray.origin;
-        Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
-        GameObject weaponBullet = Instantiate(playerStats.currentWeapon, spawnPos, Quaternion.identity);
-        Vector3 direction = touchPos - weaponBullet.transform.position;
-        direction.z = 0;
-        direction = direction.normalized;
-        weaponBullet.GetComponent<Rigidbody2D>().velocity = direction * weaponBullet.GetComponent<weaponScript>().speed;
-        // Flip the weapon sprite, if mousePos is behind player
-        if (touchPos.x < player.transform.position.x)
+        if (player.GetComponent<playerStats>().ammo != 0)
         {
-            weaponBullet.GetComponent<SpriteRenderer>().flipX = true;
-            // rotate the bullet counter clock wise
-            weaponBullet.SendMessage("RotationDirection", false);
+            Vector3 touchPos = ray.origin;
+            Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+            GameObject weaponBullet = Instantiate(playerStats.currentWeapon, spawnPos, Quaternion.identity);
+            Vector3 direction = touchPos - weaponBullet.transform.position;
+            direction.z = 0;
+            direction = direction.normalized;
+            weaponBullet.GetComponent<Rigidbody2D>().velocity = direction * weaponBullet.GetComponent<weaponScript>().speed;
+            // Flip the weapon sprite, if mousePos is behind player
+            if (touchPos.x < player.transform.position.x)
+            {
+                weaponBullet.GetComponent<SpriteRenderer>().flipX = true;
+                // rotate the bullet counter clock wise
+                weaponBullet.SendMessage("RotationDirection", false);
+            }
+            else
+            {
+                // rotate bullet clock wise
+                weaponBullet.SendMessage("RotationDirection", true);
+            }
         }
-        else
-        {
-            // rotate bullet clock wise
-            weaponBullet.SendMessage("RotationDirection", true);
+        else {
+            Debug.Log("Out OF AMMO");
         }
     }
 

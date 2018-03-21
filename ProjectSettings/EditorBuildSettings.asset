@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/MainMenu.unity
     guid: e6141894d6d931e4a8ff695f5f6fbc99
-  - enabled: 1
+  - enabled: 0
     path: Assets/AnthonsGamescene.unity
     guid: 29890217b41ff8e4fb3ed35ae8dd3a73
+  - enabled: 1
+    path: Assets/MartinsGamescene.unity
+    guid: a20449aafe0481149adf85404af90029
