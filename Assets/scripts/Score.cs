@@ -8,6 +8,9 @@ public class Score : MonoBehaviour {
     public Text scoreText;
     public float health;
     public Text healthText;
+    public Text ammoText;
+    public float ammo;
+    private GameObject player;
 
 
     public Score()
@@ -20,12 +23,14 @@ public class Score : MonoBehaviour {
         scorenum = 0;
         health = 100;
         updateScoreP(0);
+        player = GameObject.FindGameObjectWithTag("Player");
+
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+        updateAmmo();
 	}
 
     public void updateScoreP(int score)
@@ -50,5 +55,10 @@ public class Score : MonoBehaviour {
         health-=damage;
         healthText.text = "Health=" + health;
 
+    }
+
+    public void updateAmmo(){
+        ammo = player.GetComponent<playerStats>().ammo;
+        ammoText.text = "Ammo=" + ammo;
     }
 }
