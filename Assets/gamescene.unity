@@ -1035,7 +1035,11 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3a79bd8d62af412bb2892fc122663b0, type: 2}
+<<<<<<< HEAD
+  m_IsPrefabParent: 0
+=======
   m_IsPrefabParent: 0
 =======
   scoreText: {fileID: 0}
 >>>>>>> cbb8806e9b2d6f40992a3edc5945927a75ff6434
+>>>>>>> b79e949b99b301d28d3f26bcf4865701d80e5937
