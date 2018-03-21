@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponType: Bowling ball
-  damage: 50
+  damage: 30
   speed: 15
   rotationSpeed: 0
 --- !u!212 &212606641053808434

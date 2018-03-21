@@ -23,10 +23,24 @@ public class ammoSpawner : MonoBehaviour
         playerPos = new Vector2(player.transform.position.x, player.transform.position.y);
         if (playerLastXPos + spawnEveryX < player.transform.position.x)
         {
+           
             playerLastXPos = player.transform.position.x;
 
             GameObject ammoInstance = Instantiate(Resources.Load("ammoCrate", typeof(GameObject))) as GameObject;
             ammoInstance.transform.Translate(new Vector3(playerLastXPos + 20, playerPos.y, 0));
+            Debug.Log("spawn ammo");
+        }
+
+
+        if (playerLastXPos + spawnEveryX < player.transform.position.x)
+        {
+            playerLastXPos = player.transform.position.x;
+            Debug.Log("spawn weapon");
+
+            GameObject weaponUpgrade = Instantiate(Resources.Load("weaponUpgrade1", typeof(GameObject))) as GameObject;
+            weaponUpgrade.transform.Translate(new Vector3(playerLastXPos + 20, playerPos.y, 0));
+
+           
         }
     }
 }
