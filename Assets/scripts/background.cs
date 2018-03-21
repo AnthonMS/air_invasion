@@ -7,14 +7,14 @@ public class background : MonoBehaviour {
 
     public float x = 0;
     public float speed;
-<<<<<<< HEAD
+
     Vector3 startPOS;
     private Vector2 latestGroundPos;
     private GameObject player;
     private float i = 0;
-=======
+
     //Vector3 startPOS;
->>>>>>> d58e387e7a5ad5d463d5fc7554bb12a5d4108781
+ 
 
     // Use this for initialization
     void Start () {

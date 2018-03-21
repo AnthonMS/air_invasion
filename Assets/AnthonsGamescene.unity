@@ -303,6 +303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   throwingSound: {fileID: 8300000, guid: 6cbf6531647eb2740b686296ec9b656d, type: 3}
+  hurtSound: {fileID: 8300000, guid: a93e25d20b345fc419b54321c0e51c0e, type: 3}
 --- !u!4 &204513019
 Transform:
   m_ObjectHideFlags: 0
