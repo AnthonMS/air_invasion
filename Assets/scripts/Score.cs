@@ -53,12 +53,12 @@ public class Score : MonoBehaviour {
     {
         Debug.Log("updating health");
         health-=damage;
-        healthText.text = "Health=" + health;
+        healthText.text = "Health: " + health;
 
     }
 
     public void updateAmmo(){
         ammo = player.GetComponent<playerStats>().ammo;
-        ammoText.text = "Ammo=" + ammo;
+        ammoText.text = "Ammo: " + ammo;
     }
 }
