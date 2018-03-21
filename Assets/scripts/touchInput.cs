@@ -182,4 +182,25 @@ public class touchInput : MonoBehaviour
 
         }
     }
+
+    public void ClickButtonNew(bool jump)
+    {
+        if (jump)
+        {
+            if (isJumping == false)
+            {
+                playerRB.AddForce(Vector2.up * playerStats.jumpSpeed);
+                isJumping = true;
+            }
+        }
+        else
+        {
+            Debug.Log("Protect");
+        }
+    }
+
+    public void ClickProtectButton(bool protect)
+    {
+            player.SendMessage("ChangeProtection", protect);
+    }
 }
