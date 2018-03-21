@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class playerStats : MonoBehaviour {
+public class playerStats : MonoBehaviour
+{
 
     public float runningSpeed = 3f;
     public float jumpSpeed = 500.0f;
@@ -21,8 +22,8 @@ public class playerStats : MonoBehaviour {
     public int increaseTier;
     private int weaponTier;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
         spriteRender = GetComponent<SpriteRenderer>();
         currentWeapon = Resources.Load("stone", typeof(GameObject)) as GameObject;
@@ -35,13 +36,12 @@ public class playerStats : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update ()
+    void Update()
     {
         checkTierIncrease();
-	}
+    }
 
-    private void checkTierIncrease()
-    {
+    private void checkTierIncrease(){
         if (transform.position.x > lastTierIncrease + increaseTier)
         {
             // The player has moved enough on the X-Axis to increase tier
@@ -70,7 +70,7 @@ public class playerStats : MonoBehaviour {
 
     public void updateHealth()
     {
-        if(health > 0)
+        if (health > 0)
         {
             healthText.text = "Health: " + health;
         }
@@ -118,7 +118,7 @@ public class playerStats : MonoBehaviour {
             GameObject testWep = collision.gameObject.GetComponent<weaponUpgrade>().GetWeapon(weaponTier);
             if (testWep != null)
             {
-                //Debug.Log(testWep.name);
+                Debug.Log(testWep.name);
                 currentWeapon = testWep;
             }
             else

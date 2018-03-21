@@ -175,6 +175,9 @@ public class bossScript : MonoBehaviour {
                 GameObject feathers = (GameObject)Instantiate(greenFeathers, transform.position, transform.rotation);
                 Destroy(feathers, 3f);
                 GameObject.Find("birdSpawner").SendMessage("StartStopBossFight", false);
+
+                // update score
+                player.SendMessage("updateScoreP",5);
             }
         }
     }

@@ -87,7 +87,7 @@ public class birdMeleeAttack : MonoBehaviour
             {
                 //Debug.Log("Bird's health is below 0");
                 killBird(true);
-                //player.SendMessage("updateScore");
+                player.SendMessage("updateScore");
             }
         }
     }
