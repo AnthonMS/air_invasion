@@ -62,6 +62,7 @@ public class playerStats : MonoBehaviour
             health -= damage;
             updateHealth();
             GameObject.FindGameObjectWithTag("AudioManager").SendMessage("PlayHurtSound");
+           
             //Debug.Log(damage + " melee damage taken");
         }
         else

@@ -28,6 +28,7 @@ public class seagulAttack : MonoBehaviour {
         {
             //Debug.Log("Seagul flies into Player");
             player.SendMessage("TakeDamage", damage);
+            GameObject.FindGameObjectWithTag("AudioManager").SendMessage("PlayKillBirdSound");
         }
     }
 }

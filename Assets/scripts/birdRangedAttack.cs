@@ -124,6 +124,7 @@ public class birdRangedAttack : MonoBehaviour {
             // Because of this, we will just make it invisible and not collidable
             // And after 3 seconds, destroy it, this way, the poop will have fallen to the ground.
             isDead = true;
+            GameObject.FindGameObjectWithTag("AudioManager").SendMessage("PlayKillBirdSound");
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
             Destroy(gameObject, 3f);

@@ -304,6 +304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwingSound: {fileID: 8300000, guid: 6cbf6531647eb2740b686296ec9b656d, type: 3}
   hurtSound: {fileID: 8300000, guid: a93e25d20b345fc419b54321c0e51c0e, type: 3}
+  protectSound: {fileID: 0}
 --- !u!4 &204513019
 Transform:
   m_ObjectHideFlags: 0
@@ -326,11 +327,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 035fe3ad5ee369e478ec50d702784c44, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.42
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -384,7 +385,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -2192,6 +2193,8 @@ MonoBehaviour:
   scoreText: {fileID: 1617678874}
   health: 0
   healthText: {fileID: 0}
+  ammoText: {fileID: 0}
+  ammo: 0
 --- !u!114 &2022020428
 MonoBehaviour:
   m_ObjectHideFlags: 0

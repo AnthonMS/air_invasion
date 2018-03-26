@@ -11,6 +11,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip throwingSound;
     public AudioClip hurtSound;
     public AudioClip protectSound;
+    public AudioClip killBird;
+    public AudioClip spawnBoss;
 
 
     
@@ -41,5 +43,15 @@ public class AudioManager : MonoBehaviour
     public void PlayProtectSound()
     {
         audioSrc.PlayOneShot(protectSound);
+    }
+
+    public void PlayKillBirdSound()
+    {
+        audioSrc.PlayOneShot(killBird);
+    }
+    
+    public void PlayBossSpawnSound()
+    {
+        audioSrc.PlayOneShot(spawnBoss);
     }
 }

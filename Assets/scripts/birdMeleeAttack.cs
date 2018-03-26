@@ -99,6 +99,7 @@ public class birdMeleeAttack : MonoBehaviour
             Destroy(transform.gameObject);
             GameObject feathers = (GameObject)Instantiate(whiteFeathers, transform.position, transform.rotation);
             Destroy(feathers, 3f);
+            GameObject.FindGameObjectWithTag("AudioManager").SendMessage("PlayKillBirdSound");
         }
         else
         {
