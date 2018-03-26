@@ -166,7 +166,7 @@ public class bossScript : MonoBehaviour {
         }
         else if (collision.tag == "Weapon")
         {
-            
+            GameObject.FindGameObjectWithTag("AudioManager").SendMessage("PlayBossTakeDamageSound");
             health -= collision.gameObject.GetComponent<weaponScript>().damage;
             if (health <= 0)
             {
@@ -174,6 +174,7 @@ public class bossScript : MonoBehaviour {
                 Destroy(gameObject);
                 GameObject feathers = (GameObject)Instantiate(greenFeathers, transform.position, transform.rotation);
                 Destroy(feathers, 3f);
+                GameObject.FindGameObjectWithTag("AudioManager").SendMessage("PlayBossSpawnSound");
                 GameObject.Find("birdSpawner").SendMessage("StartStopBossFight", false);
 
                 // update score
