@@ -951,9 +951,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 035fe3ad5ee369e478ec50d702784c44, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.217
+  m_Volume: 0.507
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -967,7 +967,7 @@ AudioSource:
   rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
-  BypassReverbZones: 1
+  BypassReverbZones: 0
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -1033,10 +1033,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb000adc76a323848a0ccfb854b1eeaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delay: 6
   throwingSound: {fileID: 8300000, guid: 6cbf6531647eb2740b686296ec9b656d, type: 3}
   hurtSound: {fileID: 8300000, guid: a93e25d20b345fc419b54321c0e51c0e, type: 3}
   protectSound: {fileID: 0}
   killBird: {fileID: 8300000, guid: f65f1477802f60c459dbf2b929d4b00b, type: 3}
+  spawnBoss: {fileID: 8300000, guid: 17578ba7b5bf83b4b9d058d9e4addb63, type: 3}
+  bossTakeDamage: {fileID: 8300000, guid: 74e84ec017bfcc641802e17d585c02d9, type: 3}
+  bossSpawnMusic: {fileID: 8300000, guid: 2105f66c04287354285e3c09249e20fb, type: 3}
 --- !u!4 &814621278
 Transform:
   m_ObjectHideFlags: 0

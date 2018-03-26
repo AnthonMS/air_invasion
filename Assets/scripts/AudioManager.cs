@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    private AudioSource audioSrc;
-  
+    public AudioSource audioSrc;
+    public float delay;
 
+  
     [Header("Audio Clips")]
     public AudioClip throwingSound;
     public AudioClip hurtSound;
@@ -14,14 +15,15 @@ public class AudioManager : MonoBehaviour
     public AudioClip killBird;
     public AudioClip spawnBoss;
     public AudioClip bossTakeDamage;
+    public AudioClip bossSpawnMusic;
 
-
-    
 
 	// Use this for initialization
 	void Start ()
     {
         audioSrc = GetComponent<AudioSource>();
+        audioSrc.PlayDelayed(delay);
+
     
 	}
 	
@@ -54,6 +56,7 @@ public class AudioManager : MonoBehaviour
     public void PlayBossSpawnSound()
     {
         audioSrc.PlayOneShot(spawnBoss);
+
     }
     public void PlayBossTakeDamageSound()
     {
@@ -61,4 +64,19 @@ public class AudioManager : MonoBehaviour
     }
 
 
+
+    public void PlayBossTheme()
+    {
+        audioSrc.PlayOneShot(bossSpawnMusic);
+        
+
+        
+        
+    }
 }
+   // public PlayDelayedSound(AudioClip bossSpawnMusic, float delay)
+  //  {
+   //     audioSrc.PlayOneShot(bossSpawnMusic);
+   //     yield return new WaitForSeconds(10);
+        
+   // }

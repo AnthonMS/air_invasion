@@ -42,9 +42,11 @@ public class bossScript : MonoBehaviour {
         {
             playerPos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
             Fly();
+            
 
             if (flyLeft)
             {
+                
                 // The boss is flying left, melee attack when close to player
                 MeleeAttack();
             }

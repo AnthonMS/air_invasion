@@ -119,6 +119,9 @@ public class birdSpawnerScript : MonoBehaviour
         GameObject birdInstance = Instantiate(Resources.Load(bossToSpawn, typeof(GameObject))) as GameObject;
         birdInstance.transform.Translate(new Vector3(x, y, 0));
         GameObject.FindGameObjectWithTag("AudioManager").SendMessage("PlayBossSpawnSound");
+        GameObject.FindGameObjectWithTag("AudioManager").SendMessage("PlayBossTheme");
+
+
     }
 
 
