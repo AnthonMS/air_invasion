@@ -158,6 +158,7 @@ public class bossScript : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("enters trigger");
         //Debug.Log(collision.tag);
         if (collision.tag == "Player")
         {
@@ -168,16 +169,23 @@ public class bossScript : MonoBehaviour {
         }
         else if (collision.tag == "Weapon")
         {
+            Debug.Log("enters weapon");
             GameObject.FindGameObjectWithTag("AudioManager").SendMessage("PlayBossTakeDamageSound");
             health -= collision.gameObject.GetComponent<weaponScript>().damage;
             if (health <= 0)
             {
+                Debug.Log("enters health 0");
                 isDead = true;
                 Destroy(gameObject);
                 GameObject feathers = (GameObject)Instantiate(greenFeathers, transform.position, transform.rotation);
                 Destroy(feathers, 3f);
                 GameObject.FindGameObjectWithTag("AudioManager").SendMessage("PlayBossSpawnSound");
                 GameObject.Find("birdSpawner").SendMessage("StartStopBossFight", false);
+
+                Debug.Log("spawn weapon");
+
+                GameObject weaponUpgrade = Instantiate(Resources.Load("weaponUpgrade", typeof(GameObject))) as GameObject;
+                weaponUpgrade.transform.Translate(new Vector3(playerPos.x + 5, playerPos.y, 0));
 
                 // update score
                 player.SendMessage("updateScoreP",5);
