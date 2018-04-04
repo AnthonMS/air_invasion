@@ -16,6 +16,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip spawnBoss;
     public AudioClip bossTakeDamage;
     public AudioClip bossSpawnMusic;
+    public AudioClip gameOver;
 
 
 	// Use this for initialization
@@ -62,9 +63,6 @@ public class AudioManager : MonoBehaviour
     {
         audioSrc.PlayOneShot(bossTakeDamage);
     }
-
-
-
     public void PlayBossTheme()
     {
         audioSrc.PlayOneShot(bossSpawnMusic);
@@ -73,7 +71,18 @@ public class AudioManager : MonoBehaviour
         
         
     }
+
+
+
+
+
+    public void GameOverSound()
+    {
+        audioSrc.PlayOneShot(gameOver);
+    }
 }
+
+
    // public PlayDelayedSound(AudioClip bossSpawnMusic, float delay)
   //  {
    //     audioSrc.PlayOneShot(bossSpawnMusic);

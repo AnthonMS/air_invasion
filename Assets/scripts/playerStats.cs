@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playerStats : MonoBehaviour
 {
@@ -81,6 +82,9 @@ public class playerStats : MonoBehaviour
         else
         {
             healthText.text = "RIP";
+            SceneManager.LoadScene(3);
+            
+
         }
     }
 
