@@ -46,6 +46,12 @@ public class ammoSpawner : MonoBehaviour
                     ammoInstance.transform.Translate(new Vector3(playerLastXPos + 20, playerPos.y, 0));
                     Debug.Log("spawn axeammo");
                     break;
+
+                default:
+                    ammoInstance = Instantiate(Resources.Load("ammoCrate", typeof(GameObject))) as GameObject;
+                    ammoInstance.transform.Translate(new Vector3(playerLastXPos + 20, playerPos.y, 0));
+                    Debug.Log("spawn ammo");
+                    break;
             }
 
 
