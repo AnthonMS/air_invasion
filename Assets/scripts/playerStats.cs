@@ -82,7 +82,7 @@ public class playerStats : MonoBehaviour
         else
         {
             healthText.text = "RIP";
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(2);
             
 
         }
