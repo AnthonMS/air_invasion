@@ -21,7 +21,7 @@ public class playerStats : MonoBehaviour
     private SpriteRenderer spriteRender;
     private int lastTierIncrease;
     public int increaseTier;
-    private int weaponTier;
+    public int weaponTier;
 
     // Use this for initialization
     void Start()
@@ -135,4 +135,6 @@ public class playerStats : MonoBehaviour
             }
         }
     }
+
+
 }
