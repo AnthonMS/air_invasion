@@ -17,7 +17,10 @@ public class playerStats : MonoBehaviour
     public Sprite protectSprite;
     public Sprite normalSprite;
     public Text healthText;
+    public Image staminaCircle;
 
+    private float protectStamina = 5f;
+    private float maxStamina = 5f;
     private SpriteRenderer spriteRender;
     private int lastTierIncrease;
     public int increaseTier;
@@ -34,6 +37,7 @@ public class playerStats : MonoBehaviour
         ammo += 10;
         health = 100;
         updateHealth();
+        staminaCircle.fillAmount = CalculateStamina();
     }
 
     // Update is called once per frame
@@ -42,6 +46,26 @@ public class playerStats : MonoBehaviour
         checkTierIncrease();
         gameObject.SendMessage("updateAmmo");
 
+        CheckStamina();
+    }
+
+    private void CheckStamina()
+    {
+        if (isProtecting)
+        {
+            protectStamina -= Time.deltaTime;
+            staminaCircle.fillAmount = CalculateStamina();
+            if (protectStamina < 0)
+            {
+                protectStamina = 0;
+                ChangeProtection(false);
+            }
+        }
+        else if (protectStamina < maxStamina)
+        {
+            protectStamina += Time.deltaTime;
+            staminaCircle.fillAmount = CalculateStamina();
+        }
     }
 
     private void checkTierIncrease(){
@@ -101,6 +125,11 @@ public class playerStats : MonoBehaviour
     public void GiveAmmo(int amount)
     {
         ammo += amount;
+    }
+
+    private float CalculateStamina()
+    {
+        return this.protectStamina / this.maxStamina;
     }
 
 
