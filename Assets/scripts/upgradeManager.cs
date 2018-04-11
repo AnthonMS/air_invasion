@@ -5,13 +5,13 @@ using UnityEngine;
 public class upgradeManager : MonoBehaviour {
 
     private GameObject player;
-    private GameObject ammoUpgrade;
+    private GameObject upgradeMan;
     private Vector3 playerPos;
 
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
-        ammoUpgrade = GameObject.FindGameObjectWithTag("AmmoSpawner");
+        upgradeMan = GameObject.FindGameObjectWithTag("UpgradeManager");
 		
 	}
 	
@@ -22,7 +22,7 @@ public class upgradeManager : MonoBehaviour {
 
     public void spawnWeapon(){
         Debug.Log("spawn wepaon upgrademangager");
-        if (ammoUpgrade.GetComponent<weaponUpgrade>().maxwep == false)
+        if (upgradeMan.GetComponent<weaponUpgrade>().maxwep == false)
                 {
             playerPos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
                     GameObject weaponUpgrade = Instantiate(Resources.Load("weaponUpgrade", typeof(GameObject))) as GameObject;

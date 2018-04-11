@@ -122,7 +122,6 @@ GameObject:
   m_Component:
   - component: {fileID: 63172462}
   - component: {fileID: 63172461}
-  - component: {fileID: 63172463}
   m_Layer: 5
   m_Name: ammoSpawner
   m_TagString: AmmoSpawner
@@ -161,22 +160,6 @@ RectTransform:
   m_AnchoredPosition: {x: 270, y: 228.49998}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &63172463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 63172460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ce608c8f27554b47aa5040826f65b1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapon_1: {fileID: 0}
-  weapon_2: {fileID: 0}
-  weapon_3: {fileID: 0}
-  weapon_4: {fileID: 0}
-  maxwep: 0
 --- !u!1001 &96412829
 Prefab:
   m_ObjectHideFlags: 0
@@ -1280,6 +1263,7 @@ GameObject:
   m_Component:
   - component: {fileID: 700977487}
   - component: {fileID: 700977486}
+  - component: {fileID: 700977488}
   m_Layer: 0
   m_Name: UpgradeManager
   m_TagString: UpgradeManager
@@ -1311,6 +1295,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &700977488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 700977485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce608c8f27554b47aa5040826f65b1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon_1: {fileID: 0}
+  weapon_2: {fileID: 0}
+  weapon_3: {fileID: 0}
+  weapon_4: {fileID: 0}
+  maxwep: 0
 --- !u!1 &814621275
 GameObject:
   m_ObjectHideFlags: 0
