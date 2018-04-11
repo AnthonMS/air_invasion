@@ -10,6 +10,7 @@ public class Score : MonoBehaviour {
     public Text healthText;
     public Text ammoText;
     public float ammo;
+    public float tempscore;
     private GameObject player;
 
 
@@ -31,6 +32,12 @@ public class Score : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         updateAmmo();
+        Debug.Log(tempscore+=10*Time.deltaTime);
+        if(tempscore>=1){
+            updateScoreP(1);
+            tempscore -= 1;
+            
+        }
 	}
 
     public void updateScoreP(int score)

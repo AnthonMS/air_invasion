@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a8cab64e9b28004fa7974638bca8bfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnEveryX: 10
+  spawnEveryX: 20
   weapontier: 0
 --- !u!224 &63172462
 RectTransform:
