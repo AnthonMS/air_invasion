@@ -228,8 +228,13 @@ MonoBehaviour:
     x: 0
     y: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 365
     height: 319
+=======
+    width: 504
+    height: 536
+>>>>>>> 0fd15d97e3f327fde6e93f68e188e975efc1297d
 =======
     width: 504
     height: 536
