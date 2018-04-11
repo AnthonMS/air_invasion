@@ -27,6 +27,9 @@ public class bossScript : MonoBehaviour {
     private bool doneRetracting = true;
     private bool flyLeft = true;
 
+    private bool maxweapon = false;
+    private GameObject upgradeManager;
+
     // Use this for initialization
     void Start ()
     {
@@ -183,9 +186,15 @@ public class bossScript : MonoBehaviour {
                 GameObject.Find("birdSpawner").SendMessage("StartStopBossFight", false);
 
                 Debug.Log("spawn weapon");
+                upgradeManager = GameObject.FindGameObjectWithTag("UpgradeManager");
+                upgradeManager.GetComponent<upgradeManager>().SendMessage("spawnWeapon");
 
-                GameObject weaponUpgrade = Instantiate(Resources.Load("weaponUpgrade", typeof(GameObject))) as GameObject;
-                weaponUpgrade.transform.Translate(new Vector3(playerPos.x + 5, playerPos.y, 0));
+
+               /* if (player.GetComponent<playerStats>().weaponTier == 2)
+                {
+                    GameObject weaponUpgrade = Instantiate(Resources.Load("weaponUpgrade", typeof(GameObject))) as GameObject;
+                    weaponUpgrade.transform.Translate(new Vector3(playerPos.x + 5, playerPos.y, 0));
+                }*/
 
                 // update score
                 player.SendMessage("updateScoreP",5);

@@ -16,6 +16,8 @@ TagManager:
   - Boss
   - Health
   - AudioManager
+  - AmmoSpawner
+  - UpgradeManager
   layers:
   - Default
   - TransparentFX
