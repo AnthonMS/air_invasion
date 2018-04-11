@@ -32,7 +32,8 @@ public class Score : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         updateAmmo();
-        Debug.Log(tempscore+=5*Time.deltaTime);
+        tempscore += 5 * Time.deltaTime;
+        //Debug.Log(tempscore += 5 * Time.deltaTime);
         if(tempscore>=1){
             updateScoreP(1);
             tempscore -= 1;
