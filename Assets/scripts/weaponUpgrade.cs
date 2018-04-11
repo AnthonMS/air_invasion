@@ -17,7 +17,7 @@ public class weaponUpgrade : MonoBehaviour
     //public GameObject weapon_9;
     //public GameObject weapon_10;
 
-    public bool max;
+    public bool maxwep =false;
 
   
 
@@ -28,13 +28,13 @@ public class weaponUpgrade : MonoBehaviour
         weapon_2 = Resources.Load("silverAxe", typeof(GameObject)) as GameObject;
         weapon_3 = Resources.Load("ball_bowling1", typeof(GameObject)) as GameObject;
         weapon_4 = Resources.Load("goldenAxe", typeof(GameObject)) as GameObject;
-        max = false;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(max);
+        Debug.Log(maxwep);
     }
 
     public GameObject GetWeapon(int weaponTier)
@@ -58,8 +58,8 @@ public class weaponUpgrade : MonoBehaviour
             case 4:
                 Debug.Log("case4");
                 returnVal = weapon_4;
-                max = true;
-                Debug.Log(max);
+                maxwep = true;
+                Debug.Log(maxwep);
 
                 break;
             default:
