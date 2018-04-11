@@ -94,6 +94,7 @@ public class touchInput : MonoBehaviour
                 // rotate bullet clock wise
                 weaponBullet.SendMessage("RotationDirection", true);
             }
+            player.GetComponent<playerStats>().ammo -= 1;
         }
         else {
             Debug.Log("Out OF AMMO");
