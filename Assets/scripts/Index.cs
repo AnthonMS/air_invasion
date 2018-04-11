@@ -18,12 +18,14 @@ public class Index : MonoBehaviour {
 
     public void Jump()
     {
+        GameObject.FindGameObjectWithTag("Player").SendMessage("setButtonClick", true);
         GameObject.FindGameObjectWithTag("Player").SendMessage("ClickButtonNew", true);
         Debug.Log("jump");
     }
 
     public void Protect(bool value)
     {
+        GameObject.FindGameObjectWithTag("Player").SendMessage("setButtonClick", value);
         GameObject.FindGameObjectWithTag("Player").SendMessage("ClickProtectButton", value);
 
     }

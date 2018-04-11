@@ -2534,6 +2534,10 @@ Prefab:
       propertyPath: m_TagString
       value: Health
       objectReference: {fileID: 0}
+    - target: {fileID: 1046104045606812, guid: a3a79bd8d62af412bb2892fc122663b0, type: 2}
+      propertyPath: m_TagString
+      value: Button
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3a79bd8d62af412bb2892fc122663b0, type: 2}
   m_IsPrefabParent: 0
