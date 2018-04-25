@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class playerStats : MonoBehaviour
 {
-
     public float runningSpeed = 3f;
     public float jumpSpeed = 500.0f;
     public float health;
@@ -17,7 +16,19 @@ public class playerStats : MonoBehaviour
     public Sprite protectSprite;
     public Sprite normalSprite;
     public Text healthText;
+
+    public Text tierText;
+    public float time = 5f;
+<<<<<<< HEAD
+
     public Image staminaCircle;
+
+=======
+    public Image staminaCircle;
+
+
+
+>>>>>>> be840bee43412002b2e61e4da423b1a3950609fa
 
     private float protectStamina = 5f;
     private float maxStamina = 5f;
@@ -45,6 +56,8 @@ public class playerStats : MonoBehaviour
     {
         checkTierIncrease();
         gameObject.SendMessage("updateAmmo");
+        
+        
 
         CheckStamina();
     }
@@ -75,8 +88,16 @@ public class playerStats : MonoBehaviour
             tier += 1;
             lastTierIncrease = (int)transform.position.x;
             Debug.Log("Tier Increased to: " + tier);
+            tierText.enabled = true;
+            tierText.text = "Tier Increased to: " + tier;
+            Invoke("DisableTierText", time);
             GameObject.Find("birdSpawner").SendMessage("StartStopBossFight", true);
         }
+    }
+
+    private void DisableTierText()
+    {
+        tierText.enabled = false;
     }
 
     public void TakeMeleeDamage(float damage)
@@ -150,17 +171,17 @@ public class playerStats : MonoBehaviour
             weaponTier += 1;
             //Debug.Log("UPGRADE: Tier " + weaponTier);
             Destroy(collision.gameObject);
-            //GameObject testWep = collision.gameObject.SendMessage("GetWeapon", 1);
-            //collision.gameObject.GetComponent<weaponUpgrade>().weapon_1;
-            GameObject testWep = collision.gameObject.GetComponent<weaponUpgrade>().GetWeapon(weaponTier);
+            //GameObject testWep = collision.gameObject.GetComponent<weaponUpgrade>().GetWeapon(weaponTier);
+            GameObject test = GameObject.FindGameObjectWithTag("UpgradeManager");
+            GameObject testWep = test.GetComponent<weaponUpgrade>().GetWeapon(weaponTier);
             if (testWep != null)
             {
-                Debug.Log(testWep.name);
+                //Debug.Log(testWep.name);
                 currentWeapon = testWep;
             }
             else
             {
-                Debug.Log("TestWep returned as null!");
+                //Debug.Log("TestWep returned as null!");
             }
         }
     }

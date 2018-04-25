@@ -23,11 +23,11 @@ public class upgradeManager : MonoBehaviour {
     public void spawnWeapon(){
         Debug.Log("spawn wepaon upgrademangager");
         if (upgradeMan.GetComponent<weaponUpgrade>().maxwep == false)
-                {
+        {
             playerPos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
-                    GameObject weaponUpgrade = Instantiate(Resources.Load("weaponUpgrade", typeof(GameObject))) as GameObject;
-                    weaponUpgrade.transform.Translate(new Vector3(playerPos.x + 5, playerPos.y, 0));
-                }
+            GameObject weaponUpgrade = Instantiate(Resources.Load("weaponUpgrade", typeof(GameObject))) as GameObject;
+            weaponUpgrade.transform.Translate(new Vector3(playerPos.x + 5, playerPos.y, 0));
+        }
     }
 }
 

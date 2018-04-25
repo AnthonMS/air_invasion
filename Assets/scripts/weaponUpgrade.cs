@@ -53,11 +53,11 @@ public class weaponUpgrade : MonoBehaviour
                 break;
 
             case 3:
-                Debug.Log("case3");
+                //Debug.Log("case3");
                 returnVal = weapon_3;
                 break;
             case 4:
-                Debug.Log("case4");
+                //Debug.Log("case4");
                 returnVal = weapon_4;
                 maxwep = true;
                 Debug.Log(maxwep);

@@ -33,6 +33,7 @@ public class bossScript : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        upgradeManager = GameObject.FindGameObjectWithTag("UpgradeManager");
         player = GameObject.FindGameObjectWithTag("Player");
         spriteRender = this.GetComponent<SpriteRenderer>();
         greenFeathers = Resources.Load("greenFeathers", typeof(GameObject)) as GameObject;
@@ -187,7 +188,6 @@ public class bossScript : MonoBehaviour {
 
                 // call spawn weapon from upgrade manager
                 Debug.Log("spawn weapon");
-                upgradeManager = GameObject.FindGameObjectWithTag("UpgradeManager");
                 upgradeManager.GetComponent<upgradeManager>().SendMessage("spawnWeapon");
 
 
