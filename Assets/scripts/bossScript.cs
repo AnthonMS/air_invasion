@@ -190,6 +190,10 @@ public class bossScript : MonoBehaviour {
                 Debug.Log("spawn weapon");
                 upgradeManager.GetComponent<upgradeManager>().SendMessage("spawnWeapon");
 
+                //test
+                int lasttransform = (int) transform.position.x;
+                player.GetComponent<playerStats>().increaseTier = (int) transform.position.x-lasttransform;
+
 
                 // update score
                 player.SendMessage("updateScoreP",5);
