@@ -16,16 +16,12 @@ public class playerStats : MonoBehaviour
     public Sprite protectSprite;
     public Sprite normalSprite;
     public Text healthText;
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     public Text tierText;
     public float time = 5f;
-=======
+
     public Image staminaCircle;
->>>>>>> 263cd1c55331135992440f81406897c3b0a1bcf8
-=======
-    public Image staminaCircle;
->>>>>>> 263cd1c55331135992440f81406897c3b0a1bcf8
+
 
     private float protectStamina = 5f;
     private float maxStamina = 5f;
@@ -168,17 +164,17 @@ public class playerStats : MonoBehaviour
             weaponTier += 1;
             //Debug.Log("UPGRADE: Tier " + weaponTier);
             Destroy(collision.gameObject);
-            //GameObject testWep = collision.gameObject.SendMessage("GetWeapon", 1);
-            //collision.gameObject.GetComponent<weaponUpgrade>().weapon_1;
-            GameObject testWep = collision.gameObject.GetComponent<weaponUpgrade>().GetWeapon(weaponTier);
+            //GameObject testWep = collision.gameObject.GetComponent<weaponUpgrade>().GetWeapon(weaponTier);
+            GameObject test = GameObject.FindGameObjectWithTag("UpgradeManager");
+            GameObject testWep = test.GetComponent<weaponUpgrade>().GetWeapon(weaponTier);
             if (testWep != null)
             {
-                Debug.Log(testWep.name);
+                //Debug.Log(testWep.name);
                 currentWeapon = testWep;
             }
             else
             {
-                Debug.Log("TestWep returned as null!");
+                //Debug.Log("TestWep returned as null!");
             }
         }
     }
