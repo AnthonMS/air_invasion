@@ -79,7 +79,7 @@ public class playerStats : MonoBehaviour
             tier += 1;
             lastTierIncrease = (int)transform.position.x;
             Debug.Log("Tier Increased to: " + tier);
-            tierText.text = "Tier Increased to Test : Test " + tier;
+            tierText.text = "Boss level: " + (tier - 1);
             tierText.enabled = true;
             Invoke("DisableTierText", time);
             GameObject.Find("birdSpawner").SendMessage("StartStopBossFight", true);
