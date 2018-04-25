@@ -17,8 +17,12 @@ public class playerStats : MonoBehaviour
     public Sprite normalSprite;
     public Text healthText;
 <<<<<<< HEAD
+<<<<<<< HEAD
     public Text tierText;
     public float time = 5f;
+=======
+    public Image staminaCircle;
+>>>>>>> 263cd1c55331135992440f81406897c3b0a1bcf8
 =======
     public Image staminaCircle;
 >>>>>>> 263cd1c55331135992440f81406897c3b0a1bcf8

@@ -33,7 +33,12 @@ public class Score : MonoBehaviour {
 	void Update () {
         updateAmmo();
 <<<<<<< HEAD
+<<<<<<< HEAD
       //  Debug.Log(tempscore+=10*Time.deltaTime);
+=======
+        tempscore += 5 * Time.deltaTime;
+        //Debug.Log(tempscore += 5 * Time.deltaTime);
+>>>>>>> 263cd1c55331135992440f81406897c3b0a1bcf8
 =======
         tempscore += 5 * Time.deltaTime;
         //Debug.Log(tempscore += 5 * Time.deltaTime);
