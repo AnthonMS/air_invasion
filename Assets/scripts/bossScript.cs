@@ -27,6 +27,8 @@ public class bossScript : MonoBehaviour {
     private bool doneRetracting = true;
     private bool flyLeft = true;
 
+    private int lasttransform = 0;
+
 
     private GameObject upgradeManager;
 
@@ -191,10 +193,11 @@ public class bossScript : MonoBehaviour {
                 upgradeManager.GetComponent<upgradeManager>().SendMessage("spawnWeapon");
 
                 //test
-                int lasttransform = (int) transform.position.x;
+               
                 player.GetComponent<playerStats>().increaseTier = (int) transform.position.x-lasttransform;
+                lasttransform = (int)transform.position.x;
 
-
+                //player.SendMessage("checkTierIncrease");
                 // update score
                 player.SendMessage("updateScoreP",5);
             }

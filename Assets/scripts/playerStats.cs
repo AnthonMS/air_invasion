@@ -72,7 +72,7 @@ public class playerStats : MonoBehaviour
         }
     }
 
-    private void checkTierIncrease(){
+    public void checkTierIncrease(){
         if (transform.position.x > lastTierIncrease + increaseTier)
         {
             // The player has moved enough on the X-Axis to increase tier

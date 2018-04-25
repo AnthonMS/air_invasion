@@ -127,6 +127,7 @@ public class birdSpawnerScript : MonoBehaviour
 
     public void StartStopBossFight(bool bossFight)
     {
+       
         if (bossFight)
         {
             this.bossFight = true;
@@ -134,6 +135,8 @@ public class birdSpawnerScript : MonoBehaviour
             if (GameObject.FindGameObjectWithTag("Boss") == null)
             {
                 SpawnBoss();
+                player.GetComponent<playerStats>().increaseTier = 10000;
+
             }
             
             
