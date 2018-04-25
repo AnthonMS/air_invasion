@@ -8,6 +8,7 @@ public class touchInput : MonoBehaviour
     private bool isJumping = false;
     private GameObject player;
     private Rigidbody2D playerRB;
+    private bool buttonClick = false;
 
     // Use this for initialization
     void Start ()
@@ -42,15 +43,17 @@ public class touchInput : MonoBehaviour
                 case TouchPhase.Ended:
                     // This throws a stone if touch is not on a button, and he isn't protecting
                     Vector3 touchPos2 = Camera.main.ScreenToWorldPoint(touch.position);
+                    CheckBtnClick(touchPos2, true);
                     if (CheckHitCollider(touchPos2) == false)
                     {
-                        if (!playerStats.isProtecting)
+                        
+                        if (!playerStats.isProtecting && !buttonClick)
                         {
                             // Player not protecting, he can use weapon
                             Ray screenRay = Camera.main.ScreenPointToRay(touch.position);
                             ThrowStone(screenRay);
                         }
-                        
+                        //buttonClick = false;
                     }
 
                     break;
@@ -104,21 +107,22 @@ public class touchInput : MonoBehaviour
     // This checks if there are a hit collider, if so, it checks if it is a button, if so, do not throw stone
     private bool CheckHitCollider(Vector3 touchPosWorld)
     {
+        Debug.Log("hits collider");
         Vector2 touchPosWorld2D = new Vector2(touchPosWorld.x, touchPosWorld.y);
         RaycastHit2D hitInformation = Physics2D.Raycast(touchPosWorld2D, Camera.main.transform.forward);
-        if (hitInformation.collider != null)
+        if (hitInformation.collider != null) 
         {
             //We should have hit something with a 2D Physics collider!
             GameObject touchedObject = hitInformation.transform.gameObject;
-            if (touchedObject.transform.tag == "Button")
+            if (touchedObject.tag == "Button")
             {
-                //Debug.Log("Touched " + touchedObject.transform.name);
+                Debug.Log("Touched " + touchedObject.name);
                 ClickButton(touchedObject, false);
                 return true;
             }
             else
             {
-                Debug.Log("Touched " + touchedObject.transform.tag);
+                Debug.Log("Touched " + touchedObject.tag);
                 return false;
             }
 
@@ -192,6 +196,7 @@ public class touchInput : MonoBehaviour
             {
                 playerRB.AddForce(Vector2.up * playerStats.jumpSpeed);
                 isJumping = true;
+                buttonClick = false;
             }
         }
         else
@@ -203,5 +208,9 @@ public class touchInput : MonoBehaviour
     public void ClickProtectButton(bool protect)
     {
             player.SendMessage("ChangeProtection", protect);
+    }
+
+    public void setButtonClick(bool value){
+        this.buttonClick = value;
     }
 }

@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class playerStats : MonoBehaviour
 {
-
     public float runningSpeed = 3f;
     public float jumpSpeed = 500.0f;
     public float health;
@@ -17,7 +16,15 @@ public class playerStats : MonoBehaviour
     public Sprite protectSprite;
     public Sprite normalSprite;
     public Text healthText;
+<<<<<<< HEAD
+    public Text tierText;
+    public float time = 5f;
+=======
+    public Image staminaCircle;
+>>>>>>> 263cd1c55331135992440f81406897c3b0a1bcf8
 
+    private float protectStamina = 5f;
+    private float maxStamina = 5f;
     private SpriteRenderer spriteRender;
     private int lastTierIncrease;
     public int increaseTier;
@@ -34,6 +41,7 @@ public class playerStats : MonoBehaviour
         ammo += 10;
         health = 100;
         updateHealth();
+        staminaCircle.fillAmount = CalculateStamina();
     }
 
     // Update is called once per frame
@@ -41,7 +49,29 @@ public class playerStats : MonoBehaviour
     {
         checkTierIncrease();
         gameObject.SendMessage("updateAmmo");
+        
+        
 
+        CheckStamina();
+    }
+
+    private void CheckStamina()
+    {
+        if (isProtecting)
+        {
+            protectStamina -= Time.deltaTime;
+            staminaCircle.fillAmount = CalculateStamina();
+            if (protectStamina < 0)
+            {
+                protectStamina = 0;
+                ChangeProtection(false);
+            }
+        }
+        else if (protectStamina < maxStamina)
+        {
+            protectStamina += Time.deltaTime;
+            staminaCircle.fillAmount = CalculateStamina();
+        }
     }
 
     private void checkTierIncrease(){
@@ -51,8 +81,16 @@ public class playerStats : MonoBehaviour
             tier += 1;
             lastTierIncrease = (int)transform.position.x;
             Debug.Log("Tier Increased to: " + tier);
+            tierText.enabled = true;
+            tierText.text = "Tier Increased to: " + tier;
+            Invoke("DisableTierText", time);
             GameObject.Find("birdSpawner").SendMessage("StartStopBossFight", true);
         }
+    }
+
+    private void DisableTierText()
+    {
+        tierText.enabled = false;
     }
 
     public void TakeMeleeDamage(float damage)
@@ -101,6 +139,11 @@ public class playerStats : MonoBehaviour
     public void GiveAmmo(int amount)
     {
         ammo += amount;
+    }
+
+    private float CalculateStamina()
+    {
+        return this.protectStamina / this.maxStamina;
     }
 
 
