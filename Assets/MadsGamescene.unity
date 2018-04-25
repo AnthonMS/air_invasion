@@ -2953,7 +2953,7 @@ MonoBehaviour:
   tierText: {fileID: 1594743229}
   time: 5
   staminaCircle: {fileID: 104487749}
-  increaseTier: 20
+  increaseTier: 100
   weaponTier: 0
 --- !u!114 &2022020427
 MonoBehaviour:
