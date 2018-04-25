@@ -131,7 +131,11 @@ public class birdSpawnerScript : MonoBehaviour
         {
             this.bossFight = true;
             Debug.Log("Starting Boss Fight!");
-            SpawnBoss();
+            if (!this.bossFight)
+            {
+                SpawnBoss();
+            }
+            
         }
         else
         {
