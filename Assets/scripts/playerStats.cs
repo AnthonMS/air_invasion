@@ -19,16 +19,7 @@ public class playerStats : MonoBehaviour
 
     public Text tierText;
     public float time = 5f;
-<<<<<<< HEAD
-
     public Image staminaCircle;
-
-=======
-    public Image staminaCircle;
-
-
-
->>>>>>> be840bee43412002b2e61e4da423b1a3950609fa
 
     private float protectStamina = 5f;
     private float maxStamina = 5f;
