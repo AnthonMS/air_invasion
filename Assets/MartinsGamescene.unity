@@ -122,6 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 63172462}
   - component: {fileID: 63172461}
+  - component: {fileID: 63172463}
   m_Layer: 5
   m_Name: ammoSpawner
   m_TagString: AmmoSpawner
@@ -160,6 +161,22 @@ RectTransform:
   m_AnchoredPosition: {x: 270, y: 228.49998}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &63172463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 63172460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce608c8f27554b47aa5040826f65b1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon_1: {fileID: 0}
+  weapon_2: {fileID: 0}
+  weapon_3: {fileID: 0}
+  weapon_4: {fileID: 0}
+  maxwep: 0
 --- !u!1001 &96412829
 Prefab:
   m_ObjectHideFlags: 0
@@ -335,6 +352,7 @@ GameObject:
   - component: {fileID: 131973671}
   - component: {fileID: 131973670}
   - component: {fileID: 131973669}
+  - component: {fileID: 131973672}
   m_Layer: 5
   m_Name: JumpButton
   m_TagString: Button
@@ -445,6 +463,21 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 131973667}
+--- !u!58 &131973672
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 131973667}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.32980177, y: -0.329826}
+  serializedVersion: 2
+  m_Radius: 49.31754
 --- !u!114 &206863420 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114290737553253606, guid: a3a79bd8d62af412bb2892fc122663b0,
@@ -1263,7 +1296,6 @@ GameObject:
   m_Component:
   - component: {fileID: 700977487}
   - component: {fileID: 700977486}
-  - component: {fileID: 700977488}
   m_Layer: 0
   m_Name: UpgradeManager
   m_TagString: UpgradeManager
@@ -1295,22 +1327,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &700977488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 700977485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ce608c8f27554b47aa5040826f65b1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapon_1: {fileID: 0}
-  weapon_2: {fileID: 0}
-  weapon_3: {fileID: 0}
-  weapon_4: {fileID: 0}
-  maxwep: 0
 --- !u!1 &814621275
 GameObject:
   m_ObjectHideFlags: 0
@@ -1567,6 +1583,7 @@ GameObject:
   - component: {fileID: 886090473}
   - component: {fileID: 886090476}
   - component: {fileID: 886090477}
+  - component: {fileID: 886090478}
   m_Layer: 5
   m_Name: ProtectButton
   m_TagString: Button
@@ -1725,6 +1742,21 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!58 &886090478
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 886090471}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.224645, y: 0.49965873}
+  serializedVersion: 2
+  m_Radius: 48.987526
 --- !u!1 &977546193
 GameObject:
   m_ObjectHideFlags: 0
@@ -2502,6 +2534,10 @@ Prefab:
       propertyPath: m_TagString
       value: Health
       objectReference: {fileID: 0}
+    - target: {fileID: 1046104045606812, guid: a3a79bd8d62af412bb2892fc122663b0, type: 2}
+      propertyPath: m_TagString
+      value: Button
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3a79bd8d62af412bb2892fc122663b0, type: 2}
   m_IsPrefabParent: 0
@@ -2793,7 +2829,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2022020420}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4703ee44960342f4d8263e89b2d4ab9c, type: 3}
   m_Name: 
@@ -2848,7 +2884,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2022020420}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d44614dc9ebf7f40a5caf82ce1c1baf, type: 3}
   m_Name: 

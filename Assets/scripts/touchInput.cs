@@ -53,7 +53,7 @@ public class touchInput : MonoBehaviour
                             Ray screenRay = Camera.main.ScreenPointToRay(touch.position);
                             ThrowStone(screenRay);
                         }
-                        //buttonClick = false;
+                        buttonClick = false;
                     }
 
                     break;
@@ -196,7 +196,7 @@ public class touchInput : MonoBehaviour
             {
                 playerRB.AddForce(Vector2.up * playerStats.jumpSpeed);
                 isJumping = true;
-                buttonClick = false;
+                //buttonClick = false;
             }
         }
         else
